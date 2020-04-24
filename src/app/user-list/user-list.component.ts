@@ -1,32 +1,31 @@
 import {Component, OnInit} from '@angular/core';
-import {Cargo} from "../model/cargo/cargo";
-import {CargoService} from "../services/cargo/cargo.service";
+import {User} from "../model/user/user";
+import {UserService} from "../services/user/user.service";
 
 @Component({
-  selector: 'app-cargo-list',
-  templateUrl: './cargo-list.component.html',
-  styleUrls: ['./cargo-list.component.css']
+  selector: 'app-user-list',
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.css']
 })
-export class CargoListComponent implements OnInit {
+export class UserListComponent implements OnInit {
   pageNumber = 0;
   pageSize = 20;
   sortBy = 'id';
   sortDirection = 'asc';
-  cargos: Array<Cargo>;
+  users: Array<User>;
   pages: Array<number>;
 
-  constructor(private cargoService: CargoService) {
+  constructor(private userService: UserService) {
   }
 
   ngOnInit(): void {
-    this.getOrders();
+    this.getUsers();
   }
 
-  getOrders() {
-    this.cargoService.getCargoAll(this.pageNumber, this.pageSize, this.sortBy, this.sortDirection).subscribe(data => {
-        console.log(data);
+  getUsers() {
+    this.userService.getUserAll(this.pageNumber, this.pageSize, this.sortBy, this.sortDirection).subscribe(data => {
         const pageOrders = JSON.parse(data);
-        this.cargos = pageOrders.content;
+        this.users = pageOrders.content;
         this.pages = new Array<number>(pageOrders.totalPages);
       }, error => {
         console.log(error.error.message);
@@ -37,24 +36,24 @@ export class CargoListComponent implements OnInit {
   setPageNumber(i, event: any) {
     event.preventDefault();
     this.pageNumber = i;
-    this.getOrders();
+    this.getUsers();
   }
 
   setPageSize(pageSize, event: any) {
     event.preventDefault();
     this.pageSize = pageSize;
-    this.getOrders();
+    this.getUsers();
   }
 
   setSortBy(sortBy, event: any) {
     event.preventDefault();
     this.sortBy = sortBy;
-    this.getOrders();
+    this.getUsers();
   }
 
   setSortDirection(sortDir, event: any) {
     event.preventDefault();
     this.sortDirection = sortDir;
-    this.getOrders();
+    this.getUsers();
   }
 }

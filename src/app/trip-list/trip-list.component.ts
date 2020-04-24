@@ -1,21 +1,21 @@
 import {Component, OnInit} from '@angular/core';
-import {Cargo} from "../model/cargo/cargo";
-import {CargoService} from "../services/cargo/cargo.service";
+import {Trip} from "../model/trip/trip";
+import {TripService} from "../services/trip/trip.service";
 
 @Component({
-  selector: 'app-cargo-list',
-  templateUrl: './cargo-list.component.html',
-  styleUrls: ['./cargo-list.component.css']
+  selector: 'app-trip-list',
+  templateUrl: './trip-list.component.html',
+  styleUrls: ['./trip-list.component.css']
 })
-export class CargoListComponent implements OnInit {
+export class TripListComponent implements OnInit {
   pageNumber = 0;
   pageSize = 20;
   sortBy = 'id';
   sortDirection = 'asc';
-  cargos: Array<Cargo>;
+  trips: Array<Trip>;
   pages: Array<number>;
 
-  constructor(private cargoService: CargoService) {
+  constructor(private tripService: TripService) {
   }
 
   ngOnInit(): void {
@@ -23,10 +23,9 @@ export class CargoListComponent implements OnInit {
   }
 
   getOrders() {
-    this.cargoService.getCargoAll(this.pageNumber, this.pageSize, this.sortBy, this.sortDirection).subscribe(data => {
-        console.log(data);
+    this.tripService.getTripAll(this.pageNumber, this.pageSize, this.sortBy, this.sortDirection).subscribe(data => {
         const pageOrders = JSON.parse(data);
-        this.cargos = pageOrders.content;
+        this.trips = pageOrders.content;
         this.pages = new Array<number>(pageOrders.totalPages);
       }, error => {
         console.log(error.error.message);

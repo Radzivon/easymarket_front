@@ -20,7 +20,7 @@ export class CargoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.cargoService.getCrudById(this.id).subscribe(data => {
+    this.cargoService.getCargoById(this.id).subscribe(data => {
         this.cargo = JSON.parse(data);
         console.log(this.cargo);
       },

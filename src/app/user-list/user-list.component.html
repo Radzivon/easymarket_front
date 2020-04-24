@@ -1,0 +1,36 @@
+<div>
+  <button>New User</button>
+</div>
+<div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Surname</th>
+      <th scope="col">Email</th>
+      <th scope="col">Role</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.id}}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.surname}}</td>
+      <td>{{ user.email}}</td>
+      <td>{{ user.role}}</td>
+      <td>
+        <button>Block user</button>
+        <button>Unblock</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <hr>
+  <ul class="nav nav-pills">
+    <li class="nav-item" *ngFor="let p of pages; let i=index">
+      <a class="nav-link" href="#" (click)="setPageNumber(i,$event)" [ngClass]="{'active':i==pageNumber}">{{i + 1}}</a>
+    </li>
+  </ul>
+</div>

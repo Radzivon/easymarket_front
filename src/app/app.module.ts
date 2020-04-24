@@ -8,6 +8,9 @@ import {FormsModule} from "@angular/forms";
 import {AppRoutingModule} from "./app-routing.module";
 import {CargoComponent} from './cargo/cargo.component';
 import {CargoListComponent} from './cargo-list/cargo-list.component';
+import {TripComponent} from './trip/trip.component';
+import {TripListComponent} from './trip-list/trip-list.component';
+import {UserListComponent} from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import {CargoListComponent} from './cargo-list/cargo-list.component';
     PageNotFoundComponent,
     CargoComponent,
     CargoComponent,
-    CargoListComponent
+    CargoListComponent,
+    TripComponent,
+    TripListComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,

@@ -19,13 +19,13 @@ export class CargoService {
   constructor(private http: HttpClient) {
   }
 
-  getCrudAll(page: number, pageSize: number, sortBy: string, sortDir: string): Observable<string> {
+  getCargoAll(page: number, pageSize: number, sortBy: string, sortDir: string): Observable<string> {
     return this.http.get(this.baseUrl + this.cargoAllUrl
       + '?' + this.pageStr + page + this.and + this.pageSizeStr + pageSize + this.and + this.sortByStr + sortBy
       + this.and + this.order + sortDir, {responseType: 'text'});
   }
 
-  getCrudById(id: number) {
+  getCargoById(id: number) {
     return this.http.get(this.baseUrl + this.cargoUrl + id, {responseType: 'text'})
   }
 }
