@@ -5,5 +5,12 @@ export class User {
   email: string;
   password: string;
   role: string;
-  block: boolean;
+  isBlock: boolean;
+
+  constructor() {
+  }
+
+  setBlock(isBlock){
+    this.isBlock = isBlock;
+  }
 }

@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {User} from "../../model/user/user";
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -14,7 +15,7 @@ export class UserService {
   private userAllUrl = 'user/all';
   private userUrl = 'user/';
   private userAddUrl = 'user/add';
-  private userEditUrl = 'user/edit/'
+  private userBlockUrl = 'user/block/';
   private pageStr = 'page=';
   private pageSizeStr = 'pageSize=';
   private sortByStr = 'sortBy=';
@@ -35,9 +36,16 @@ export class UserService {
   }
 
   blockUserById(id: number) {
-    this.http.put(this.baseUrl + this.userEditUrl + id, 'block: true', httpOptions)
+    const user = new User();
+    user.setBlock(true);
+    return this.http.put<User>(this.baseUrl + this.userBlockUrl + id,
+      JSON.stringify(user), httpOptions).subscribe();
   }
+
   unblockUserById(id: number) {
-    this.http.put(this.baseUrl + this.userEditUrl + id, 'block: false', httpOptions)
+    const user = new User();
+    user.setBlock(false);
+    return this.http.put<User>(this.baseUrl + this.userBlockUrl + id,
+      JSON.stringify(user), httpOptions).subscribe();
   }
 }

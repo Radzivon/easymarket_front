@@ -22,14 +22,14 @@
       <td>{{ user.email}}</td>
       <td>{{ user.role}}</td>
       <td>
-        <div *ngIf="user.block;else notBlocked">
+        <div *ngIf="user.isBlock;else notBlocked">
           <p style="color: red">Blocked </p>
         </div>
         <ng-template #notBlocked>
           <p style="color: green">Not blocked</p>
         </ng-template>
       <td>
-      <div *ngIf="!user.block;else unblock">
+      <div *ngIf="!user.isBlock;else unblock">
         <button (click)="blockUser(user.id)">Block</button>
       </div>
       <ng-template #unblock>
