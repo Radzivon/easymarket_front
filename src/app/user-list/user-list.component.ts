@@ -56,4 +56,12 @@ export class UserListComponent implements OnInit {
     this.sortDirection = sortDir;
     this.getUsers();
   }
+
+  blockUser(userId: number) {
+    this.userService.blockUserById(userId);
+  }
+
+  unblockUser(userId: number) {
+    this.userService.unblockUserById(userId);
+  }
 }

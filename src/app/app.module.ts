@@ -11,6 +11,9 @@ import {CargoListComponent} from './cargo-list/cargo-list.component';
 import {TripComponent} from './trip/trip.component';
 import {TripListComponent} from './trip-list/trip-list.component';
 import {UserListComponent} from './user-list/user-list.component';
+import {LoginComponent} from './login/login.component';
+import {SingUpComponent} from './sing-up/sing-up.component';
+import {CargoOwnerComponent} from './cargo-owner/cargo-owner.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import {UserListComponent} from './user-list/user-list.component';
     CargoListComponent,
     TripComponent,
     TripListComponent,
-    UserListComponent
+    UserListComponent,
+    LoginComponent,
+    SingUpComponent,
+    CargoOwnerComponent
   ],
   imports: [
     BrowserModule,

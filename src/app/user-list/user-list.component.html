@@ -10,6 +10,7 @@
       <th scope="col">Surname</th>
       <th scope="col">Email</th>
       <th scope="col">Role</th>
+      <th scope="col">Status</th>
       <th scope="col">Action</th>
     </tr>
     </thead>
@@ -21,8 +22,20 @@
       <td>{{ user.email}}</td>
       <td>{{ user.role}}</td>
       <td>
-        <button>Block user</button>
-        <button>Unblock</button>
+        <div *ngIf="user.block;else notBlocked">
+          <p style="color: red">Blocked </p>
+        </div>
+        <ng-template #notBlocked>
+          <p style="color: green">Not blocked</p>
+        </ng-template>
+      <td>
+      <div *ngIf="!user.block;else unblock">
+        <button (click)="blockUser(user.id)">Block</button>
+      </div>
+      <ng-template #unblock>
+        <button (click)="unblockUser(user.id)">Unblock</button>
+      </ng-template>
+
       </td>
     </tr>
     </tbody>
