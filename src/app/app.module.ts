@@ -12,10 +12,10 @@ import {TripComponent} from './trip/trip.component';
 import {TripListComponent} from './trip-list/trip-list.component';
 import {UserListComponent} from './user-list/user-list.component';
 import {LoginComponent} from './login/login.component';
-import {SingUpComponent} from './sing-up/sing-up.component';
 import {CargoOwnerComponent} from './cargo-owner/cargo-owner.component';
 import {ManagerComponent} from './manager/manager.component';
 import {UserComponent} from './user/user.component';
+import {SignUpComponent} from './sign-up/sign-up.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
@@ -29,10 +29,10 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
     TripListComponent,
     UserListComponent,
     LoginComponent,
-    SingUpComponent,
     CargoOwnerComponent,
     ManagerComponent,
-    UserComponent
+    UserComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

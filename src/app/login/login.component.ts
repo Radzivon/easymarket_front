@@ -20,7 +20,11 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-
+    const loginInfo = new LoginInfo(
+      this.form.username,
+      this.form.password
+    )
+   //todo
   }
 
   reloadPage() {

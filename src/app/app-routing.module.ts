@@ -7,9 +7,19 @@ import {TripComponent} from "./trip/trip.component";
 import {TripListComponent} from "./trip-list/trip-list.component";
 import {UserListComponent} from "./user-list/user-list.component";
 import {ManagerComponent} from "./manager/manager.component";
+import {LoginComponent} from "./login/login.component";
+import {SignUpComponent} from "./sign-up/sign-up.component";
 
 
 const routes: Routes = [
+  {
+    path: "login",
+    component: LoginComponent
+  },
+  {
+    path: "singup",
+    component: SignUpComponent
+  },
   {
     path: "manager",
     component: ManagerComponent
