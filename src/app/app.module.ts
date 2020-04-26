@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HttpClientModule} from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AppRoutingModule} from "./app-routing.module";
 import {CargoComponent} from './cargo/cargo.component';
 import {CargoListComponent} from './cargo-list/cargo-list.component';
@@ -14,6 +14,9 @@ import {UserListComponent} from './user-list/user-list.component';
 import {LoginComponent} from './login/login.component';
 import {SingUpComponent} from './sing-up/sing-up.component';
 import {CargoOwnerComponent} from './cargo-owner/cargo-owner.component';
+import {ManagerComponent} from './manager/manager.component';
+import {UserComponent} from './user/user.component';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -27,15 +30,20 @@ import {CargoOwnerComponent} from './cargo-owner/cargo-owner.component';
     UserListComponent,
     LoginComponent,
     SingUpComponent,
-    CargoOwnerComponent
+    CargoOwnerComponent,
+    ManagerComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

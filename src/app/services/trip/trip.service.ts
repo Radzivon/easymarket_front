@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Trip} from "../../model/trip/trip";
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class TripService {
   private tripAllUrl = 'trip/all';
   private tripUrl = 'trip/';
   private tripAddUrl = 'trip/add';
+  private tripEdit = 'trip/edit/';
   private pageStr = 'page=';
   private pageSizeStr = 'pageSize=';
   private sortByStr = 'sortBy=';
@@ -27,5 +29,9 @@ export class TripService {
 
   getTripById(id: number) {
     return this.http.get(this.baseUrl + this.tripUrl + id, {responseType: 'text'})
+  }
+
+  acceptTripAsPaid(trip: Trip) {
+     return this.http.put(this.baseUrl + this.tripEdit+ trip.id, trip).subscribe();
   }
 }

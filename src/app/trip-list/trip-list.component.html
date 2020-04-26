@@ -1,28 +1,35 @@
 <div>
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Current city</th>
-      <th scope="col">Car</th>
-      <th scope="col">Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let trip of trips">
-      <td><a routerLink="">{{trip.id}}</a></td>
-      <td>{{ trip.currentCity }}</td>
-      <td>{{ trip.car}}</td>
-      <td>
-        <button>Paid</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-  <hr>
-  <ul class="nav nav-pills">
-    <li class="nav-item" *ngFor="let p of pages; let i=index">
-      <a class="nav-link" href="#" (click)="setPageNumber(i,$event)" [ngClass]="{'active':i==pageNumber}">{{i + 1}}</a>
-    </li>
-  </ul>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Current city</th>
+        <th scope="col">Car</th>
+        <th scope="col">Paid</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let trip of trips">
+        <td><a routerLink="">{{trip.id}}</a></td>
+        <td>{{ trip.currentCity }}</td>
+        <td>{{ trip.car}}</td>
+        <td>
+          <div *ngIf="trip.isPaid;else notPaid">
+            <p style="color: green">Paid</p>
+          </div>
+          <ng-template #notPaid>
+            <div>
+              <button (click)="markTripAsPaid(trip.id)">Mark as paid</button>
+            </div>
+          </ng-template>
+      </tr>
+      </tbody>
+    </table>
+    <hr>
+    <ul class="nav nav-pills">
+      <li class="nav-item" *ngFor="let p of pages; let i=index">
+        <a class="nav-link" href="#" (click)="setPageNumber(i,$event)"
+           [ngClass]="{'active':i==pageNumber}">{{i + 1}}</a>
+      </li>
+    </ul>
 </div>

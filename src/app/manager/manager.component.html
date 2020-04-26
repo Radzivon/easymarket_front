@@ -1,0 +1,25 @@
+<app-user></app-user>
+<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+  <li [ngbNavItem]="1">
+    <a ngbNavLink>Cargo list</a>
+    <ng-template ngbNavContent>
+      <app-cargo-list></app-cargo-list>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="2">
+    <a ngbNavLink>Trip list</a>
+    <ng-template ngbNavContent>
+     <app-trip-list></app-trip-list>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="3">
+    <a ngbNavLink>User list</a>
+    <ng-template ngbNavContent>
+     <app-user-list></app-user-list>
+    </ng-template>
+  </li>
+</ul>
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+<pre>Active: {{ active }}</pre>

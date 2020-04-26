@@ -7,4 +7,5 @@ export class Cargo {
   height: number;
   location: string;
   transportationCost: number;
+  isPaid: boolean;
 }

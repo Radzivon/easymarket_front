@@ -6,9 +6,14 @@ import {CargoComponent} from "./cargo/cargo.component";
 import {TripComponent} from "./trip/trip.component";
 import {TripListComponent} from "./trip-list/trip-list.component";
 import {UserListComponent} from "./user-list/user-list.component";
+import {ManagerComponent} from "./manager/manager.component";
 
 
 const routes: Routes = [
+  {
+    path: "manager",
+    component: ManagerComponent
+  },
   {
     path: "cargo/all",
     component: CargoListComponent

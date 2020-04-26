@@ -27,7 +27,6 @@ export class UserListComponent implements OnInit {
 
       const pageOrders = JSON.parse(data);
         this.users = pageOrders.content;
-        console.log(this.users);
         this.pages = new Array<number>(pageOrders.totalPages);
       }, error => {
         console.log(error.error.message);

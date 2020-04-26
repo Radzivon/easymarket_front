@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Trip} from "../model/trip/trip";
 import {TripService} from "../services/trip/trip.service";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-trip-list',
@@ -14,8 +15,12 @@ export class TripListComponent implements OnInit {
   sortDirection = 'asc';
   trips: Array<Trip>;
   pages: Array<number>;
+  form: FormGroup;
 
-  constructor(private tripService: TripService) {
+  constructor(private tripService: TripService, private fb: FormBuilder) {
+    this.form = this.fb.group({
+      checkArray: this.fb.array([])
+    })
   }
 
   ngOnInit(): void {
@@ -55,5 +60,12 @@ export class TripListComponent implements OnInit {
     event.preventDefault();
     this.sortDirection = sortDir;
     this.getOrders();
+  }
+
+  markTripAsPaid(tripId){
+    const trip = new Trip();
+    trip.isPaid = true;
+    trip.id = tripId;
+     this.tripService.acceptTripAsPaid(trip);
   }
 }
