@@ -41,10 +41,24 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="role">Role</label>
-        <input type="radio" id="role" formControlName="role" value="MANAGER" > Manager
-        <input type="radio" formControlName="role" value="CARGO_OWNER"> Cargo owner
-        <input type="radio" formControlName="role" value="TRANSPORTER"> Transporter
+        <div>
+          <label for="role">Role</label>
+        </div>
+        <div>
+          <input type="radio" id="role" name="role" [(ngModel)]="form.role"
+                 #role="ngModel" value="MANAGER" required> Manager
+        </div>
+        <div>
+          <input type="radio" name="role" [(ngModel)]="form.role"
+                 #role="ngModel" value="CARGO_OWNER"required> Cargo owner
+        </div>
+        <div>
+          <input type="radio" name="role" [(ngModel)]="form.role"
+                 #role="ngModel" value="TRANSPORTER"required> Transporter
+        </div>
+        <div *ngIf="role.invalid">
+         Role required.
+        </div>
       </div>
       <div class="form-group">
         <button class="btn btn-primary">Register</button>
