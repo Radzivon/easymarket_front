@@ -3,6 +3,8 @@ import {CargoService} from "../services/cargo/cargo.service";
 import {Cargo} from "../model/cargo/cargo";
 import {ActivatedRoute} from "@angular/router";
 import {Subscription} from "rxjs";
+import {TripService} from "../services/trip/trip.service";
+import {Trip} from "../model/trip/trip";
 
 @Component({
   selector: 'app-cargo-owner',
@@ -15,26 +17,42 @@ export class CargoOwnerComponent implements OnInit {
   sortBy = 'id';
   sortDirection = 'asc';
   cargos: Array<Cargo>;
-  pages: Array<number>;
+  trips: Array<Trip>;
+  pagesCargo: Array<number>;
+  pagesTrip: Array<number>;
   userId: number;
   private routeSubscription: Subscription;
   active = 1;
   errorMessage: string;
   hasError: boolean;
 
-  constructor(private cargoService: CargoService, route: ActivatedRoute) {
+  constructor(private cargoService: CargoService, route: ActivatedRoute, private tripService: TripService) {
     this.routeSubscription = route.params.subscribe(params => this.userId = params['userId']);
   }
 
   ngOnInit(): void {
-    this.getOrders();
+    this.getCargo();
+    this.getTrips();
   }
 
-  getOrders() {
+  getCargo() {
     this.cargoService.getCargoAllByUserId(this.pageNumber, this.pageSize, this.sortBy, this.sortDirection, this.userId).subscribe(data => {
         const pageOrders = JSON.parse(data);
         this.cargos = pageOrders.content;
-        this.pages = new Array<number>(pageOrders.totalPages);
+        this.pagesCargo = new Array<number>(pageOrders.totalPages);
+      }, error => {
+        console.log(error.error.message);
+      }
+    );
+  }
+
+  getTrips() {
+    this.tripService.getTripByCargoOwner('1', this.pageNumber, this.pageSize, this.sortBy, this.sortDirection).subscribe(data => {
+        const pageOrders = JSON.parse(data);
+        console.log('getTrips');
+        console.log(pageOrders);
+        this.trips = pageOrders.content;
+        this.pagesTrip = new Array<number>(pageOrders.totalPages);
       }, error => {
         console.log(error.error.message);
       }
@@ -44,25 +62,25 @@ export class CargoOwnerComponent implements OnInit {
   setPageNumber(i, event: any) {
     event.preventDefault();
     this.pageNumber = i;
-    this.getOrders();
+    this.getCargo();
   }
 
   setPageSize(pageSize, event: any) {
     event.preventDefault();
     this.pageSize = pageSize;
-    this.getOrders();
+    this.getCargo();
   }
 
   setSortBy(sortBy, event: any) {
     event.preventDefault();
     this.sortBy = sortBy;
-    this.getOrders();
+    this.getCargo();
   }
 
   setSortDirection(sortDir, event: any) {
     event.preventDefault();
     this.sortDirection = sortDir;
-    this.getOrders();
+    this.getCargo();
   }
 
   editCargo(cargoId: number) {

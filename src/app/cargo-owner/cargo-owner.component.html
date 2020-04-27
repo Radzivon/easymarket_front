@@ -43,15 +43,21 @@
                     <td>{{ cargo.location}}</td>
                     <td>{{ cargo.transportationCost}}</td>
                     <td>
-                      <button (click)="editCargo(cargo.id)">Edit</button>
-                      <button (click)="deleteCargo(cargo)">Delete</button>
+                      <div *ngIf="cargo.cargoCondition === 'FREE'; else notEdited">
+                        <button (click)="editCargo(cargo.id)">Edit</button>
+                        <button (click)="deleteCargo(cargo)">Delete</button>
+                      </div>
+
+                        <ng-template #notEdited>
+                          <div>Not edited</div>
+                        </ng-template>
                     </td>
                   </tr>
                   </tbody>
                 </table>
                 <hr>
                 <ul class="nav nav-pills">
-                  <li class="nav-item" *ngFor="let p of pages; let i=index">
+                  <li class="nav-item" *ngFor="let p of pagesCargo; let i=index">
                     <a class="nav-link" href="#" (click)="setPageNumber(i,$event)"
                        [ngClass]="{'active':i==pageNumber}">{{i + 1}}</a>
                   </li>
@@ -63,7 +69,44 @@
         <li [ngbNavItem]="2">
           <a ngbNavLink>Cargo in trip</a>
           <ng-template ngbNavContent>
-            <p>2</p>
+            <div>
+              <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Current city</th>
+                  <th scope="col">Car</th>
+                  <th scope="col">Paid</th>
+                  <th scope="col">Condition</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let trip of trips">
+                  <td><a routerLink="trip/{{trip.id}}}">{{trip.id}}</a></td>
+                  <td>{{ trip.currentCity }}</td>
+                  <td>{{ trip.car}}</td>
+                  <td>
+                    <div *ngIf="trip.isPaid;else notPaid">
+                      <p style="color: green">Paid</p>
+                    </div>
+                    <ng-template #notPaid>
+                      <p style="color: red">Not paid</p>
+                    </ng-template>
+                  </td>
+                  <td>
+                    {{trip.tripCondition}}
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <hr>
+              <ul class="nav nav-pills">
+                <li class="nav-item" *ngFor="let p of pagesTrip; let i=index">
+                  <a class="nav-link" href="#" (click)="setPageNumber(i,$event)"
+                     [ngClass]="{'active':i==pageNumber}">{{i + 1}}</a>
+                </li>
+              </ul>
+            </div>
           </ng-template>
         </li>
       </ul>

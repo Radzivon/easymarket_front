@@ -12,6 +12,7 @@ export class TripService {
   private tripUrl = 'trip/';
   private tripAddUrl = 'trip/add';
   private tripEdit = 'trip/edit/';
+  private tripByCargo = 'trip/cargo/user/';
   private pageStr = 'page=';
   private pageSizeStr = 'pageSize=';
   private sortByStr = 'sortBy=';
@@ -26,12 +27,17 @@ export class TripService {
       + '?' + this.pageStr + page + this.and + this.pageSizeStr + pageSize + this.and + this.sortByStr + sortBy
       + this.and + this.order + sortDir, {responseType: 'text'});
   }
+  getTripByCargoOwner(userId: string, page: number, pageSize: number, sortBy: string, sortDir: string){
+    return this.http.get(this.baseUrl + this.tripByCargo + userId
+      + '?' + this.pageStr + page + this.and + this.pageSizeStr + pageSize + this.and + this.sortByStr + sortBy
+      + this.and + this.order + sortDir, {responseType: 'text'});
+  }
 
   getTripById(id: number) {
     return this.http.get(this.baseUrl + this.tripUrl + id, {responseType: 'text'})
   }
 
   acceptTripAsPaid(trip: Trip) {
-     return this.http.put(this.baseUrl + this.tripEdit+ trip.id, trip).subscribe();
+    return this.http.put(this.baseUrl + this.tripEdit + trip.id, trip).subscribe();
   }
 }
