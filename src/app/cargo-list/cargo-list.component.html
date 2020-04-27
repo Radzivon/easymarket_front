@@ -24,7 +24,14 @@
       <td>{{ cargo.location}}</td>
       <td>{{ cargo.transportationCost}}</td>
       <td>
-        <button>Paid</button>
+        <div *ngIf="cargo.isPaid;else notPaid">
+          <p style="color: green">Paid</p>
+        </div>
+        <ng-template #notPaid>
+          <div>
+            <button (click)="markAsPaid(cargo.id)">Mark as paid</button>
+          </div>
+        </ng-template>
       </td>
     </tr>
     </tbody>

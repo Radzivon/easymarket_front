@@ -17,6 +17,7 @@ import {ManagerComponent} from './manager/manager.component';
 import {UserComponent} from './user/user.component';
 import {SignUpComponent} from './sign-up/sign-up.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {TransporterComponent} from './transporter/transporter.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
     CargoOwnerComponent,
     ManagerComponent,
     UserComponent,
-    SignUpComponent
+    SignUpComponent,
+    TransporterComponent
   ],
   imports: [
     BrowserModule,

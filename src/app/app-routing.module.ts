@@ -9,6 +9,8 @@ import {UserListComponent} from "./user-list/user-list.component";
 import {ManagerComponent} from "./manager/manager.component";
 import {LoginComponent} from "./login/login.component";
 import {SignUpComponent} from "./sign-up/sign-up.component";
+import {CargoOwnerComponent} from "./cargo-owner/cargo-owner.component";
+import {TransporterComponent} from "./transporter/transporter.component";
 
 
 const routes: Routes = [
@@ -23,6 +25,14 @@ const routes: Routes = [
   {
     path: "manager",
     component: ManagerComponent
+  },
+  {
+    path: "cargoowner",
+    component: CargoOwnerComponent
+  },
+  {
+    path: "transporter",
+    component: TransporterComponent
   },
   {
     path: "cargo/all",

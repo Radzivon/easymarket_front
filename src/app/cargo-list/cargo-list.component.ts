@@ -57,4 +57,9 @@ export class CargoListComponent implements OnInit {
     this.sortDirection = sortDir;
     this.getOrders();
   }
+
+  markAsPaid(id: number) {
+    this.cargoService.setPaidByCargoId(id, true);
+    this.getOrders();
+  }
 }

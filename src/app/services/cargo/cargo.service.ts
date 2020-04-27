@@ -10,6 +10,7 @@ export class CargoService {
   private cargoAllUrl = 'cargo/all';
   private cargoAllByUserIdUrl = 'cargo/all?userId=';
   private cargoUrl = 'cargo/';
+  private cargoPadiUrl = 'cargo/paid/';
   private cargoAddUrl = 'cargo/add';
   private pageStr = 'page=';
   private pageSizeStr = 'pageSize=';
@@ -34,5 +35,9 @@ export class CargoService {
 
   getCargoById(id: number) {
     return this.http.get(this.baseUrl + this.cargoUrl + id, {responseType: 'text'})
+  }
+
+  setPaidByCargoId(id: number, isPaid: boolean) {
+    return this.http.put(this.baseUrl + this.cargoUrl + id, JSON.stringify(isPaid), {responseType: 'text'})
   }
 }
