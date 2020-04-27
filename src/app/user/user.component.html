@@ -1,0 +1,20 @@
+<div class="container">
+
+  <div class="card">
+    <div class="card-header">
+      <div *ngIf="user.role">
+        <p>{{user.role}}</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{user.name}}</h5>
+      <p class="card-text">{{user.surname}}</p>
+      <p class="card-text">{{user.email}}</p>
+      <div class="card-text">
+      </div>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div>
+
+

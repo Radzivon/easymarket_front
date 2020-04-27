@@ -3,5 +3,6 @@ export class Trip {
   currentCity: string;
   car: string;
   isPaid: boolean;
+  tripCondition: string;
   cities: [];
 }

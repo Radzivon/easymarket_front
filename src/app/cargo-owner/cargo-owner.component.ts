@@ -18,6 +18,9 @@ export class CargoOwnerComponent implements OnInit {
   pages: Array<number>;
   userId: number;
   private routeSubscription: Subscription;
+  active = 1;
+  errorMessage: string;
+  hasError: boolean;
 
   constructor(private cargoService: CargoService, route: ActivatedRoute) {
     this.routeSubscription = route.params.subscribe(params => this.userId = params['userId']);
@@ -60,5 +63,17 @@ export class CargoOwnerComponent implements OnInit {
     event.preventDefault();
     this.sortDirection = sortDir;
     this.getOrders();
+  }
+
+  editCargo(cargoId: number) {
+
+  }
+
+  deleteCargo(cargo: Cargo) {
+    console.log(cargo);
+    console.log(cargo.cargoCondition === 'FREE');
+    if (cargo.cargoCondition === 'FREE') {
+      this.cargoService.deleteCargo(cargo.id);
+    }
   }
 }
