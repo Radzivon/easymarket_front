@@ -11,6 +11,7 @@ import {LoginComponent} from "./login/login.component";
 import {SignUpComponent} from "./sign-up/sign-up.component";
 import {CargoOwnerComponent} from "./cargo-owner/cargo-owner.component";
 import {TransporterComponent} from "./transporter/transporter.component";
+import {EditTripComponent} from "./edit-trip/edit-trip.component";
 
 
 const routes: Routes = [
@@ -50,7 +51,10 @@ const routes: Routes = [
     path: "trip/:id",
     component: TripComponent
   },
-
+  {
+    path: "trip/edit/:id",
+    component: EditTripComponent
+  },
   {
     path: "user/all",
     component: UserListComponent
@@ -62,7 +66,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

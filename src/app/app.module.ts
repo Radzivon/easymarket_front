@@ -18,6 +18,9 @@ import {UserComponent} from './user/user.component';
 import {SignUpComponent} from './sign-up/sign-up.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {TransporterComponent} from './transporter/transporter.component';
+import {CurrentTripComponent} from './current-trip/current-trip.component';
+import {FreeCargoComponent} from './free-cargo/free-cargo.component';
+import {EditTripComponent} from './edit-trip/edit-trip.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import {TransporterComponent} from './transporter/transporter.component';
     ManagerComponent,
     UserComponent,
     SignUpComponent,
-    TransporterComponent
+    TransporterComponent,
+    CurrentTripComponent,
+    FreeCargoComponent,
+    EditTripComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +48,7 @@ import {TransporterComponent} from './transporter/transporter.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

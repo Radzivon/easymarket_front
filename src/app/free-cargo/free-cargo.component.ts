@@ -1,25 +1,21 @@
 import {Component, OnInit} from '@angular/core';
 import {Cargo} from "../model/cargo/cargo";
-import {Trip} from "../model/trip/trip";
 import {CargoService} from "../services/cargo/cargo.service";
-import {TripService} from "../services/trip/trip.service";
 
 @Component({
-  selector: 'app-transporter',
-  templateUrl: './transporter.component.html',
-  styleUrls: ['./transporter.component.css']
+  selector: 'app-free-cargo',
+  templateUrl: './free-cargo.component.html',
+  styleUrls: ['./free-cargo.component.css']
 })
-export class TransporterComponent implements OnInit {
+export class FreeCargoComponent implements OnInit {
   pageNumber = 0;
   pageSize = 20;
   sortBy = 'id';
   sortDirection = 'asc';
-  cargo: Array<Cargo>;
-  trips: Array<Trip>;
-  pagesCargo: Array<number>;
-  pagesTrip: Array<number>;
+  cargos: Array<Cargo>;
+  pages: Array<number>;
 
-  constructor(private cargoService: CargoService, private tripService: TripService) {
+  constructor(private cargoService: CargoService) {
   }
 
   ngOnInit(): void {
@@ -29,8 +25,8 @@ export class TransporterComponent implements OnInit {
   getFreeCargo() {
     this.cargoService.getFreeCargo().subscribe(data => {
       const pageOrders = JSON.parse(data);
-      this.cargo = pageOrders.content;
-      this.pagesCargo = new Array<number>(pageOrders.totalPages);
+      this.cargos = pageOrders.content;
+      this.pages = new Array<number>(pageOrders.totalPages);
     }, error => {
       console.log(error.error.message);
     });
@@ -59,4 +55,5 @@ export class TransporterComponent implements OnInit {
     this.sortDirection = sortDir;
     this.getFreeCargo();
   }
+
 }

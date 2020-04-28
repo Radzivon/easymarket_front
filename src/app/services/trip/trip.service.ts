@@ -10,6 +10,7 @@ export class TripService {
   private baseUrl = 'http://localhost:8080/';
   private tripAllUrl = 'trip/all';
   private tripUrl = 'trip/';
+  private tripCurrent = 'trip/current/';
   private tripAddUrl = 'trip/add';
   private tripEdit = 'trip/edit/';
   private tripByCargo = 'trip/cargo/user/';
@@ -27,7 +28,8 @@ export class TripService {
       + '?' + this.pageStr + page + this.and + this.pageSizeStr + pageSize + this.and + this.sortByStr + sortBy
       + this.and + this.order + sortDir, {responseType: 'text'});
   }
-  getTripByCargoOwner(userId: string, page: number, pageSize: number, sortBy: string, sortDir: string){
+
+  getTripByCargoOwner(userId: string, page: number, pageSize: number, sortBy: string, sortDir: string) {
     return this.http.get(this.baseUrl + this.tripByCargo + userId
       + '?' + this.pageStr + page + this.and + this.pageSizeStr + pageSize + this.and + this.sortByStr + sortBy
       + this.and + this.order + sortDir, {responseType: 'text'});
@@ -38,6 +40,14 @@ export class TripService {
   }
 
   acceptTripAsPaid(trip: Trip) {
+    return this.http.put(this.baseUrl + this.tripEdit + trip.id, trip).subscribe();
+  }
+
+  getCurrentTrips(userId): Observable<string> {
+    return this.http.get(this.baseUrl + this.tripCurrent + userId, {responseType: 'text'})
+  }
+
+  editTrip(trip: Trip) {
     return this.http.put(this.baseUrl + this.tripEdit + trip.id, trip).subscribe();
   }
 }

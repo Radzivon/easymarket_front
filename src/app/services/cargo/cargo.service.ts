@@ -9,6 +9,7 @@ import {Cargo} from "../../model/cargo/cargo";
 export class CargoService {
   private baseUrl = 'http://localhost:8080/';
   private cargoAllUrl = 'cargo/all';
+  private freeCargoUrl = 'cargo/free';
   private cargoAllByUserIdUrl = 'cargo/user/';
   private cargoUrl = 'cargo/';
   private deleteCargoUrl = 'cargo/delete/';
@@ -47,7 +48,7 @@ export class CargoService {
   }
 
   updateCargo(cargo: Cargo) {
-    return this.http.put(this.baseUrl + this.updateCargoUrl + cargo.id, JSON.stringify(cargo), {responseType: 'text'});
+    return this.http.put(this.baseUrl + this.updateCargoUrl + cargo.id, JSON.stringify(cargo));
   }
 
   saveCargo(cargo: Cargo) {
@@ -56,5 +57,10 @@ export class CargoService {
 
   deleteCargo(cargoId: number) {
     return this.http.delete(this.baseUrl + this.deleteCargoUrl + cargoId)
+  }
+
+  getFreeCargo(): Observable<string> {
+    return this.http.get(this.baseUrl + this.freeCargoUrl, {responseType: 'text'});
+
   }
 }
