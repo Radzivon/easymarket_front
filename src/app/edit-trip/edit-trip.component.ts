@@ -39,15 +39,15 @@ export class EditTripComponent implements OnInit {
   }
 
   editTrip() {
-    const editedTrip = new Trip(
-      this.trip.id,
-      this.getLocationControl().value,
-      this.trip.car,
-      this.trip.isPaid,
-      this.trip.tripCondition,
-      this.trip.cities
-    );
-    this.tripService.editTrip(editedTrip);
+    const editedTrip = new Trip();
+    editedTrip.id = this.trip.id;
+    editedTrip.currentCity = this.getLocationControl().value;
+    editedTrip.car = this.trip.car;
+    editedTrip.isPaid = this.trip.isPaid;
+    editedTrip.tripCondition = this.trip.tripCondition;
+    editedTrip.cities = this.trip.cities;
+
+      this.tripService.editTrip(editedTrip);
     this.router.navigate(['trip/edit/' + this.trip.id])
   }
 

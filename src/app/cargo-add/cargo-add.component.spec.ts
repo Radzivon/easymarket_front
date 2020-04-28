@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {FreeCargoComponent} from './free-cargo.component';
+import {CargoAddComponent} from './cargo-add.component';
 
-describe('FreeCargoComponent', () => {
-  let component: FreeCargoComponent;
-  let fixture: ComponentFixture<FreeCargoComponent>;
+describe('CargoAddComponent', () => {
+  let component: CargoAddComponent;
+  let fixture: ComponentFixture<CargoAddComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FreeCargoComponent ]
+      declarations: [ CargoAddComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FreeCargoComponent);
+    fixture = TestBed.createComponent(CargoAddComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -19,9 +19,10 @@ import {SignUpComponent} from './sign-up/sign-up.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {TransporterComponent} from './transporter/transporter.component';
 import {CurrentTripComponent} from './current-trip/current-trip.component';
-import {FreeCargoComponent} from './free-cargo/free-cargo.component';
 import {EditTripComponent} from './edit-trip/edit-trip.component';
 import {HomeComponent} from './home/home.component';
+import {CargoAddComponent} from './cargo-add/cargo-add.component';
+import {TripAddComponent} from './trip-add/trip-add.component';
 
 @NgModule({
   declarations: [
@@ -40,9 +41,10 @@ import {HomeComponent} from './home/home.component';
     SignUpComponent,
     TransporterComponent,
     CurrentTripComponent,
-    FreeCargoComponent,
     EditTripComponent,
-    HomeComponent
+    HomeComponent,
+    CargoAddComponent,
+    TripAddComponent
   ],
   imports: [
     BrowserModule,

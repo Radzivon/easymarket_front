@@ -1,7 +1,11 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Trip} from "../../model/trip/trip";
+
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
 
 @Injectable({
   providedIn: 'root'
@@ -49,5 +53,9 @@ export class TripService {
 
   editTrip(trip: Trip) {
     return this.http.put(this.baseUrl + this.tripEdit + trip.id, trip).subscribe();
+  }
+
+  saveTrip(trip: Trip) {
+    return this.http.post<Trip>(this.baseUrl + this.tripAddUrl, JSON.stringify(trip), httpOptions).subscribe();
   }
 }
