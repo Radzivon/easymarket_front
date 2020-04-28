@@ -10,15 +10,6 @@ export class Trip {
   private _cities: Array<City>;
   private _cargo: Array<Cargo>;
 
-  // constructor(id: number, currentCity: string, car: string, isPaid: boolean, tripCondition: string, cities: Array<City>) {
-  //   this.id = id;
-  //   this._currentCity = currentCity;
-  //   this._car = car;
-  //   this._isPaid = isPaid;
-  //   this._tripCondition = tripCondition;
-  //   this._cities = cities;
-  // }
-
   get currentCity(): string {
     return this._currentCity;
   }

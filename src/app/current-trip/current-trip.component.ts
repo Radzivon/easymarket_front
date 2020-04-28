@@ -26,7 +26,7 @@ export class CurrentTripComponent implements OnInit {
 
   getCurrentTrips() {
     const userId = 2;
-    this.tripService.getCurrentTrips(userId).subscribe(data => {
+    this.tripService.getCurrentTrips().subscribe(data => {
       const pageOrders = JSON.parse(data);
       this.trips = pageOrders.content;
       this.pages = new Array<number>(pageOrders.totalPages);

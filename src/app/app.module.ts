@@ -24,6 +24,7 @@ import {HomeComponent} from './home/home.component';
 import {CargoAddComponent} from './cargo-add/cargo-add.component';
 import {TripAddComponent} from './trip-add/trip-add.component';
 import {CargoEditComponent} from './cargo-edit/cargo-edit.component';
+import {httpInterceptorProviders} from "./interceptor/auth-interceptor.interceptor";
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import {CargoEditComponent} from './cargo-edit/cargo-edit.component';
     ReactiveFormsModule,
     NgbModule,
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule {

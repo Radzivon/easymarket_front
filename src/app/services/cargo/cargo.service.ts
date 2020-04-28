@@ -14,7 +14,7 @@ export class CargoService {
   private baseUrl = 'http://localhost:8080/';
   private cargoAllUrl = 'cargo/all';
   private freeCargoUrl = 'cargo/free';
-  private cargoAllByUserIdUrl = 'cargo/user/';
+  private cargoAllByUserIdUrl = 'cargo/user';
   private cargoUrl = 'cargo/';
   private deleteCargoUrl = 'cargo/delete/';
   private updateCargoUrl = 'cargo/update/';
@@ -35,11 +35,9 @@ export class CargoService {
       + this.and + this.order + sortDir, {responseType: 'text'});
   }
 
-  getCargoAllByUserId(page: number, pageSize: number, sortBy: string, sortDir: string, userId: number): Observable<string> {
-    //todo
-    userId = 1;
+  getCargoAllByUserId(page: number, pageSize: number, sortBy: string, sortDir: string): Observable<string> {
     return this.http.get(this.baseUrl + this.cargoAllByUserIdUrl
-      + userId + '?' + this.pageStr + page + this.and + this.pageSizeStr + pageSize + this.and + this.sortByStr + sortBy
+      + '?' + this.pageStr + page + this.and + this.pageSizeStr + pageSize + this.and + this.sortByStr + sortBy
       + this.and + this.order + sortDir, {responseType: 'text'});
   }
 

@@ -17,7 +17,7 @@ export class TripService {
   private tripCurrent = 'trip/current/';
   private tripAddUrl = 'trip/add';
   private tripEdit = 'trip/edit/';
-  private tripByCargo = 'trip/cargo/user/';
+  private tripByCargo = 'trip/cargo/user';
   private pageStr = 'page=';
   private pageSizeStr = 'pageSize=';
   private sortByStr = 'sortBy=';
@@ -33,8 +33,8 @@ export class TripService {
       + this.and + this.order + sortDir, {responseType: 'text'});
   }
 
-  getTripByCargoOwner(userId: string, page: number, pageSize: number, sortBy: string, sortDir: string) {
-    return this.http.get(this.baseUrl + this.tripByCargo + userId
+  getTripByCargoOwner(page: number, pageSize: number, sortBy: string, sortDir: string) {
+    return this.http.get(this.baseUrl + this.tripByCargo
       + '?' + this.pageStr + page + this.and + this.pageSizeStr + pageSize + this.and + this.sortByStr + sortBy
       + this.and + this.order + sortDir, {responseType: 'text'});
   }
@@ -47,8 +47,8 @@ export class TripService {
     return this.http.put(this.baseUrl + this.tripEdit + trip.id, trip).subscribe();
   }
 
-  getCurrentTrips(userId): Observable<string> {
-    return this.http.get(this.baseUrl + this.tripCurrent + userId, {responseType: 'text'})
+  getCurrentTrips(): Observable<string> {
+    return this.http.get(this.baseUrl + this.tripCurrent , {responseType: 'text'})
   }
 
   editTrip(trip: Trip) {
@@ -56,7 +56,6 @@ export class TripService {
   }
 
   saveTrip(trip: Trip) {
-    console.log(this.http.post(this.baseUrl + this.tripAddUrl, JSON.stringify(trip), httpOptions).subscribe());
     return this.http.post(this.baseUrl + this.tripAddUrl, JSON.stringify(trip), httpOptions).subscribe();
   }
 }

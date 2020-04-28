@@ -14,7 +14,7 @@ export class UserService {
   private baseUrl = 'http://localhost:8080/';
   private userAllUrl = 'user/all';
   private userUrl = 'user/';
-  private userAddUrl = 'user/add';
+  private userInfoUrl = 'user/info';
   private userBlockUrl = 'user/block/';
   private pageStr = 'page=';
   private pageSizeStr = 'pageSize=';
@@ -32,7 +32,10 @@ export class UserService {
   }
 
   getUserById(id: number) {
-    return this.http.get(this.baseUrl + this.userUrl + id, {responseType: 'text'})
+    return this.http.get(this.baseUrl + this.userUrl + id, {responseType: 'text'});
+  }
+  getUserInfo(){
+    return this.http.get(this.baseUrl + this.userInfoUrl, {responseType: 'text'})
   }
 
   blockUserById(id: number) {

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SignUpInfo} from "../model/singUpInfo/sign-up-info";
+import {AuthService} from "../services/auth/auth.service";
 
 @Component({
   selector: 'app-sign-up',
@@ -13,7 +14,7 @@ export class SignUpComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor() {
+  constructor(private authService: AuthService) {
   }
 
   ngOnInit() {
@@ -26,6 +27,18 @@ export class SignUpComponent implements OnInit {
       this.form.email,
       this.form.password,
       this.form.role);
-//todo
+
+    this.authService.signUp(this.signUpInfo).subscribe(
+      data => {
+        this.isSignedUp = true;
+        this.isSignUpFailed = false;
+        console.log(this.isSignedUp)
+      },
+      error => {
+        console.log(error);
+        this.errorMessage = error.error.message;
+        this.isSignUpFailed = true;
+      }
+    );
   }
 }

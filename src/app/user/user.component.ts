@@ -8,16 +8,17 @@ import {User} from "../model/user/user";
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  user:User;
-  constructor(private userService: UserService) { }
+  user: User;
 
-  ngOnInit(): void {
-    //todo
-    this.getUser(1);
+  constructor(private userService: UserService) {
   }
 
-  getUser(id: number) {
-    const infoUser = this.userService.getUserById(3).subscribe(data => {
+  ngOnInit(): void {
+    this.getUser();
+  }
+
+  getUser() {
+    const infoUser = this.userService.getUserInfo().subscribe(data => {
       this.user = JSON.parse(data);
     })
   }
