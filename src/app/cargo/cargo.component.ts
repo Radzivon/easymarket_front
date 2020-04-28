@@ -22,10 +22,8 @@ export class CargoComponent implements OnInit {
   ngOnInit(): void {
     this.cargoService.getCargoById(this.id).subscribe(data => {
         this.cargo = JSON.parse(data);
-        console.log(this.cargo);
       },
       error => {
-        console.log(error);
         this.errorMessage = error.error.message;
       }
     );

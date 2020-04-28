@@ -18,12 +18,12 @@ export class CargoAddComponent implements OnInit {
               private route: ActivatedRoute, private router: Router, private location: Location) {
     this.form = this.formBuilder.group({
       name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      weight: new FormControl(0, [Validators.required]),
-      width: new FormControl(0, [Validators.required]),
-      length: new FormControl(0, [Validators.required]),
-      height: new FormControl(0, [Validators.required]),
+      weight: new FormControl(0, [Validators.required, Validators.min(0)]),
+      width: new FormControl(0, [Validators.required, Validators.min(0)]),
+      length: new FormControl(0, [Validators.required, Validators.min(0)]),
+      height: new FormControl(0, [Validators.required, Validators.min(0)]),
       location: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      transportationCost: new FormControl(0, [Validators.required]),
+      transportationCost: new FormControl(0, [Validators.required, Validators.min(0)]),
     });
   }
 
