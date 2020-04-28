@@ -21,6 +21,7 @@ import {TransporterComponent} from './transporter/transporter.component';
 import {CurrentTripComponent} from './current-trip/current-trip.component';
 import {FreeCargoComponent} from './free-cargo/free-cargo.component';
 import {EditTripComponent} from './edit-trip/edit-trip.component';
+import {HomeComponent} from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {EditTripComponent} from './edit-trip/edit-trip.component';
     TransporterComponent,
     CurrentTripComponent,
     FreeCargoComponent,
-    EditTripComponent
+    EditTripComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

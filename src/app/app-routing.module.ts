@@ -12,9 +12,24 @@ import {SignUpComponent} from "./sign-up/sign-up.component";
 import {CargoOwnerComponent} from "./cargo-owner/cargo-owner.component";
 import {TransporterComponent} from "./transporter/transporter.component";
 import {EditTripComponent} from "./edit-trip/edit-trip.component";
+import {HomeComponent} from "./home/home.component";
 
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
+  {
+    path: '#',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    component: HomeComponent
+  },
   {
     path: "login",
     component: LoginComponent

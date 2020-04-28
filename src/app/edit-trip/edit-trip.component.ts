@@ -4,6 +4,7 @@ import {Trip} from "../model/trip/trip";
 import {FormBuilder, FormControl, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-edit-trip',
@@ -18,10 +19,10 @@ export class EditTripComponent implements OnInit {
   errorMessage: string;
 
   constructor(private tripService: TripService, private formBuilder: FormBuilder,
-              private route: ActivatedRoute, private router: Router) {
+              private route: ActivatedRoute, private router: Router, private location: Location) {
     this.routeSubscription = route.params.subscribe(params => this.id = params['id']);
     this.form = this.formBuilder.group({
-      location: new FormControl( '',[Validators.required, Validators.minLength(3)]),
+      location: new FormControl('', [Validators.required, Validators.minLength(3)]),
     });
   }
 
@@ -47,12 +48,13 @@ export class EditTripComponent implements OnInit {
       this.trip.cities
     );
     this.tripService.editTrip(editedTrip);
-      this.router.navigate(['trip/edit/' + this.trip.id])
+    this.router.navigate(['trip/edit/' + this.trip.id])
   }
-  backToTransporterPage(){
-    this.router.navigate(
-      ['/transporter']);
+
+  goBack() {
+    this.location.back();
   }
+
   getLocationControl() {
     return this.form.get('location');
   }
