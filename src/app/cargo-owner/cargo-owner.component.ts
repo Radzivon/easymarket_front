@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CargoService} from "../services/cargo/cargo.service";
 import {Cargo} from "../model/cargo/cargo";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
 import {TripService} from "../services/trip/trip.service";
 import {Trip} from "../model/trip/trip";
@@ -26,7 +26,7 @@ export class CargoOwnerComponent implements OnInit {
   errorMessage: string;
   hasError: boolean;
 
-  constructor(private cargoService: CargoService, route: ActivatedRoute, private tripService: TripService) {
+  constructor(private cargoService: CargoService, route: ActivatedRoute, private tripService: TripService, private router: Router) {
     this.routeSubscription = route.params.subscribe(params => this.userId = params['userId']);
   }
 
@@ -84,7 +84,7 @@ export class CargoOwnerComponent implements OnInit {
   }
 
   editCargo(cargoId: number) {
-
+    this.router.navigate(['cargo/edit/' + cargoId])
   }
 
   deleteCargo(cargo: Cargo) {

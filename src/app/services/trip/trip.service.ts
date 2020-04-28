@@ -56,6 +56,7 @@ export class TripService {
   }
 
   saveTrip(trip: Trip) {
-    return this.http.post<Trip>(this.baseUrl + this.tripAddUrl, JSON.stringify(trip), httpOptions).subscribe();
+    console.log(this.http.post(this.baseUrl + this.tripAddUrl, JSON.stringify(trip), httpOptions).subscribe());
+    return this.http.post(this.baseUrl + this.tripAddUrl, JSON.stringify(trip), httpOptions).subscribe();
   }
 }
