@@ -56,7 +56,7 @@ export class CargoService {
   }
 
   saveCargo(cargo: Cargo) {
-    return this.http.post(this.baseUrl + this.cargoAddUrl, JSON.stringify(cargo), {responseType: 'text'});
+    return this.http.post(this.baseUrl + this.cargoAddUrl, JSON.stringify(cargo), httpOptions).subscribe();
   }
 
   deleteCargo(cargoId: number) {

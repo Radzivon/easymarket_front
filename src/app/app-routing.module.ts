@@ -13,6 +13,7 @@ import {CargoOwnerComponent} from "./cargo-owner/cargo-owner.component";
 import {TransporterComponent} from "./transporter/transporter.component";
 import {EditTripComponent} from "./edit-trip/edit-trip.component";
 import {HomeComponent} from "./home/home.component";
+import {CargoAddComponent} from "./cargo-add/cargo-add.component";
 
 
 const routes: Routes = [
@@ -58,6 +59,11 @@ const routes: Routes = [
     path: "cargo/:id",
     component: CargoComponent
   },
+  {
+    path: "cargo/add",
+    component: CargoAddComponent
+  }
+  ,
   {
     path: "trip/all",
     component: TripListComponent

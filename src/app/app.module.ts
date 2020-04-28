@@ -23,6 +23,7 @@ import {EditTripComponent} from './edit-trip/edit-trip.component';
 import {HomeComponent} from './home/home.component';
 import {CargoAddComponent} from './cargo-add/cargo-add.component';
 import {TripAddComponent} from './trip-add/trip-add.component';
+import {CargoEditComponent} from './cargo-edit/cargo-edit.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {TripAddComponent} from './trip-add/trip-add.component';
     EditTripComponent,
     HomeComponent,
     CargoAddComponent,
-    TripAddComponent
+    TripAddComponent,
+    CargoEditComponent
   ],
   imports: [
     BrowserModule,
