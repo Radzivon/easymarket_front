@@ -69,9 +69,7 @@ export class TripAddComponent implements OnInit {
   }
 
   addToCart(cargo: Cargo) {
-    console.log(cargo);
     this.cartService.addCargoToCart(cargo);
-
     this.cities = this.cartService.cities;
   }
 
@@ -88,6 +86,10 @@ export class TripAddComponent implements OnInit {
       this.tripService.saveTrip(newTrip);
 
       this.cartService.clear();
+      this.cities = this.cartService.cities;
+      this.form.reset();
+
+      this.getFreeCargo();
     } else {
       alert("You don't add any cargo");
     }

@@ -14,11 +14,15 @@ export class CartService {
     this._cities = new Array<City>();
   }
 
-  addCargoToCart(cargo: Cargo) {
-    console.log(cargo);
+  addCargoToCart(cargo: Cargo): boolean {
+    for(let temp of this.cargo){
+      if(temp === cargo){
+        return false;
+      }
+    }
     this._cargo.push(cargo);
-    console.log(this.cargo);
     this._cities.push(new City(cargo.location));
+    return true;
   }
 
   deleteCargoFromCart(cargo: Cargo) {

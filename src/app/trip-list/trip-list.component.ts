@@ -62,10 +62,18 @@ export class TripListComponent implements OnInit {
     this.getOrders();
   }
 
-  markTripAsPaid(tripId){
-    const trip = new Trip();
-    trip.isPaid = true;
-    trip.id = tripId;
-     this.tripService.acceptTripAsPaid(trip);
+  markTripAsPaid(trip) {
+    const editedTrip = new Trip();
+    editedTrip.isPaid = true;
+    editedTrip.id = trip.id;
+    editedTrip.currentCity = trip.currentCity;
+    editedTrip.car = trip.car;
+    editedTrip.tripCondition = trip.tripCondition;
+    editedTrip.cities = trip.cities;
+    this.tripService.acceptTripAsPaid(editedTrip).subscribe(
+      data => {
+        this.getOrders();
+      }
+    );
   }
 }

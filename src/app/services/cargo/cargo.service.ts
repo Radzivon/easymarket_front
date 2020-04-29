@@ -46,7 +46,9 @@ export class CargoService {
   }
 
   setPaidByCargoId(id: number, isPaid: boolean) {
-    return this.http.put(this.baseUrl + this.cargoPaidUrl + id, JSON.stringify(isPaid), {responseType: 'text'});
+    const cargo = new Cargo();
+    cargo.isPaid = isPaid;
+    return this.http.put(this.baseUrl + this.cargoPaidUrl + id, JSON.stringify(cargo));
   }
 
   updateCargo(cargo: Cargo) {
@@ -58,11 +60,10 @@ export class CargoService {
   }
 
   deleteCargo(cargoId: number) {
-    return this.http.delete(this.baseUrl + this.deleteCargoUrl + cargoId)
+    return this.http.delete(this.baseUrl + this.deleteCargoUrl + cargoId).subscribe();
   }
 
   getFreeCargo(): Observable<string> {
     return this.http.get(this.baseUrl + this.freeCargoUrl, {responseType: 'text'});
-
   }
 }

@@ -42,13 +42,13 @@ export class UserService {
     const user = new User();
     user.setBlock(true);
     return this.http.put<User>(this.baseUrl + this.userBlockUrl + id,
-      JSON.stringify(user), httpOptions).subscribe();
+      JSON.stringify(user), httpOptions);
   }
 
   unblockUserById(id: number) {
     const user = new User();
     user.setBlock(false);
     return this.http.put<User>(this.baseUrl + this.userBlockUrl + id,
-      JSON.stringify(user), httpOptions).subscribe();
+      JSON.stringify(user), httpOptions);
   }
 }

@@ -24,7 +24,6 @@ export class CargoListComponent implements OnInit {
 
   getOrders() {
     this.cargoService.getCargoAll(this.pageNumber, this.pageSize, this.sortBy, this.sortDirection).subscribe(data => {
-        console.log(data);
         const pageOrders = JSON.parse(data);
         this.cargos = pageOrders.content;
         this.pages = new Array<number>(pageOrders.totalPages);
@@ -59,7 +58,8 @@ export class CargoListComponent implements OnInit {
   }
 
   markAsPaid(id: number) {
-    this.cargoService.setPaidByCargoId(id, true);
-    this.getOrders();
+    this.cargoService.setPaidByCargoId(id, true).subscribe(data=>{
+      this.getOrders();
+    });
   }
 }
