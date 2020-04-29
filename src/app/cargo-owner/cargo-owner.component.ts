@@ -49,8 +49,6 @@ export class CargoOwnerComponent implements OnInit {
   getTrips() {
     this.tripService.getTripByCargoOwner(this.pageNumber, this.pageSize, this.sortBy, this.sortDirection).subscribe(data => {
         const pageOrders = JSON.parse(data);
-        console.log('getTrips');
-        console.log(pageOrders);
         this.trips = pageOrders.content;
         this.pagesTrip = new Array<number>(pageOrders.totalPages);
       }, error => {
@@ -88,11 +86,7 @@ export class CargoOwnerComponent implements OnInit {
   }
 
   deleteCargo(cargo: Cargo) {
-    console.log(cargo);
-    console.log(cargo.cargoCondition === 'FREE');
-    if (cargo.cargoCondition === 'FREE') {
-      this.cargoService.deleteCargo(cargo.id);
-    }
+    this.cargoService.deleteCargo(cargo.id);
   }
 
   goToNewCargo() {

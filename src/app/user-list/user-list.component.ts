@@ -24,7 +24,7 @@ export class UserListComponent implements OnInit {
 
   getUsers() {
     this.userService.getUserAll(this.pageNumber, this.pageSize, this.sortBy, this.sortDirection).subscribe(data => {
-      const pageOrders = JSON.parse(data);
+        const pageOrders = JSON.parse(data);
         this.users = pageOrders.content;
         this.pages = new Array<number>(pageOrders.totalPages);
       }, error => {
@@ -58,14 +58,17 @@ export class UserListComponent implements OnInit {
   }
 
   blockUser(userId: number) {
-    console.log("blcok")
-    this.userService.blockUserById(userId);
+    this.userService.blockUserById(userId).subscribe(
+      data => {
+        this.getUsers();
+      }
+    );
     this.getUsers();
   }
 
   unblockUser(userId: number) {
-    console.log("unblcok");
-    this.userService.unblockUserById(userId);
-    this.getUsers();
+    this.userService.unblockUserById(userId).subscribe(data => {
+      this.getUsers();
+    });
   }
 }

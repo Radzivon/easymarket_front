@@ -20,24 +20,41 @@ export class CargoEditComponent implements OnInit {
 
   constructor(private cargoService: CargoService, private formBuilder: FormBuilder,
               private route: ActivatedRoute, private router: Router, private location: Location) {
-    this.form = this.formBuilder.group({
-      name: new FormControl(this.cargo.name, [Validators.required, Validators.minLength(3)]),
-      weight: new FormControl(this.cargo.weight, [Validators.required, Validators.min(0)]),
-      width: new FormControl(this.cargo.width, [Validators.required, Validators.min(0)]),
-      length: new FormControl(this.cargo.length, [Validators.required, Validators.min(0)]),
-      height: new FormControl(this.cargo.height, [Validators.required, Validators.min(0)]),
-      location: new FormControl(this.cargo.location, [Validators.required, Validators.minLength(3)]),
-      transportationCost: new FormControl(this.cargo.transportationCost, [Validators.required, Validators.min(0)]),
-    });
     this.routeSubscription = route.params.subscribe(params => this.id = params['id']);
+    this.form = this.formBuilder.group({
+      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      weight: new FormControl(0, [Validators.required, Validators.min(0)]),
+      width: new FormControl(0, [Validators.required, Validators.min(0)]),
+      length: new FormControl(0, [Validators.required, Validators.min(0)]),
+      height: new FormControl(0, [Validators.required, Validators.min(0)]),
+      location: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      transportationCost: new FormControl(0, [Validators.required, Validators.min(0)]),
+    });
+
   }
 
   ngOnInit(): void {
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
       return false;
     };
+    this.getCargo();
+
+  }
+
+  setControlValues() {
+    this.getNameControl().setValue(this.cargo.name);
+    this.getLengthControl().setValue(this.cargo.length);
+    this.getLocationControl().setValue(this.cargo.location);
+    this.getWeightControl().setValue(this.cargo.weight);
+    this.getWidthControl().setValue(this.cargo.width);
+    this.getHeightControl().setValue(this.cargo.height);
+    this.getTransportationCostControl().setValue(this.cargo.transportationCost);
+  }
+
+  getCargo() {
     this.cargoService.getCargoById(this.id).subscribe(data => {
       this.cargo = JSON.parse(data);
+      this.setControlValues();
     });
   }
 

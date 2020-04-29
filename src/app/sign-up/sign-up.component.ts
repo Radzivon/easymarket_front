@@ -32,7 +32,6 @@ export class SignUpComponent implements OnInit {
       data => {
         this.isSignedUp = true;
         this.isSignUpFailed = false;
-        console.log(this.isSignedUp)
       },
       error => {
         console.log(error);

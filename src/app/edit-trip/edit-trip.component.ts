@@ -47,7 +47,7 @@ export class EditTripComponent implements OnInit {
     editedTrip.tripCondition = this.trip.tripCondition;
     editedTrip.cities = this.trip.cities;
 
-      this.tripService.editTrip(editedTrip);
+    this.tripService.editTrip(editedTrip);
     this.router.navigate(['trip/edit/' + this.trip.id])
   }
 

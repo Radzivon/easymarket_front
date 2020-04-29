@@ -44,11 +44,11 @@ export class TripService {
   }
 
   acceptTripAsPaid(trip: Trip) {
-    return this.http.put(this.baseUrl + this.tripEdit + trip.id, trip).subscribe();
+    return this.http.put(this.baseUrl + this.tripEdit + trip.id, trip);
   }
 
   getCurrentTrips(): Observable<string> {
-    return this.http.get(this.baseUrl + this.tripCurrent , {responseType: 'text'})
+    return this.http.get(this.baseUrl + this.tripCurrent, {responseType: 'text'})
   }
 
   editTrip(trip: Trip) {
