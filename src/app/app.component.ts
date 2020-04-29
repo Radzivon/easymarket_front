@@ -7,8 +7,9 @@ import {TokenStorageService} from "./services/tokenStorage/token-storage.service
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  title = '';
   private roles: string[];
-  private authority: string;
+   authority: string;
 
   constructor(private tokenStorage: TokenStorageService) {
   }

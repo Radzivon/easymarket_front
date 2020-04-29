@@ -94,4 +94,8 @@ export class CargoOwnerComponent implements OnInit {
       this.cargoService.deleteCargo(cargo.id);
     }
   }
+
+  goToNewCargo() {
+    this.router.navigate(['cargo/add']);
+  }
 }

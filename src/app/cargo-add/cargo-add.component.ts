@@ -46,6 +46,8 @@ export class CargoAddComponent implements OnInit {
     newCargo.cargoCondition = "FREE";
 
     this.cargoService.saveCargo(newCargo);
+
+    this.goBack();
   }
 
   goBack() {
