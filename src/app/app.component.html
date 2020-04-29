@@ -1,5 +1,17 @@
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-  <a class="navbar-brand" href="#">Easy company</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>App</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="app.component.css" rel="stylesheet">
+</head>
+<body class="text-center">
+<nav class="navbar navbar-expand-md nice-bg navbar-dark">
+  <a class="navbar-brand" href="#">Home</a>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="nav navbar-nav" routerLinkActive="active">
       <li class="nav-item">
@@ -11,12 +23,17 @@
       <li *ngIf="authority === 'transporter'" class="nav-item">
         <a class="nav-link" routerLink="transporter">Transporter</a>
       </li>
-      <li *ngIf="!authority" class="nav-item">
-        <a class="nav-link" routerLink="/login">Login</a>
-      </li>
-      <li *ngIf="authority" class="nav-item">
-        <a class="nav-link" (click)="signOut()" routerLink="#">Logout</a>
-      </li>
+      <ul class="nav navbar-nav nb-right">
+        <li *ngIf="!authority" class="nav-item">
+          <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+        <li *ngIf="!authority" class="nav-item">
+          <a class="nav-link" routerLink="/signup">Sign-up</a>
+        </li>
+        <li *ngIf="authority" class="nav-item">
+          <a class="nav-link" (click)="signOut()" routerLink="#">Logout</a>
+        </li>
+      </ul>
     </ul>
   </div>
 </nav>
@@ -24,6 +41,12 @@
 <div class="container">
   <router-outlet></router-outlet>
 </div>
-<!--<footer class="blockquote-footer">-->
-<!--    <app-footer></app-footer>-->
-<!--</footer>-->
+
+<footer class="nice-footer">
+  <p>
+    © Ivanenko Dmitry, © Radion Vladislav, © Kamysh Yegor<br>
+    RadionKamyshIvanenko@gmail.com
+  </p>
+</footer>
+</body>
+</html>
