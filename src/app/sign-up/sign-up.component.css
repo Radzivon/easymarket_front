@@ -1,0 +1,37 @@
+.form-class {
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+.form-text-class {
+  color: #feca00;
+  position: absolute;
+}
+.btn-color{
+  color: #feca00;
+  background-color: #0d1316;
+  border-color: #0d1316;
+  lighting-color: #feca00;
+}
+.btn-color:hover {
+  color: #0d1316;
+  background-color: #feca00;
+  border-color: #0d1316;
+  lighting-color: #0d1316;
+}
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+

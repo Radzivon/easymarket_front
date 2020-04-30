@@ -6,8 +6,8 @@
   font-weight: 500;
   line-height: 1.2;
 }
-.nice-bg {
-  background-color: #63614e;
+.nice-navbar {
+  background-color: #0d1316;
 }
 .nb-right {
   position: absolute;
@@ -18,10 +18,10 @@
   position: fixed; /* Фиксированное положение */
   left: 0; bottom: 0; /* Левый нижний угол */
   padding: 10px; /* Поля вокруг текста */
-  background-color: #63614e;
-  color: #fff; /* Цвет текста */
+  background-color: #0d1316;
+  height: 40px;
   width: 100%; /* Ширина слоя */
-  color: #ffffff;
+  color: #e8b000;
 }
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
@@ -46,9 +46,8 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #ffffff;
   text-align: left;
-  background-color: #c0bb99;
+  background-color: #0d1316;
   position: fixed;
   top: 0;
   left: 0;
@@ -60,6 +59,12 @@ html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
+}
+a {
+  color: #feca00;
+}
+a:hover {
+  color: #ffec9b;
 }
 *, ::after, ::before {
   box-sizing: border-box;
