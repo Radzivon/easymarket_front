@@ -1,25 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Jekyll v3.8.6">
-  <title>Login</title>
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/sign-in/">
-  <link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-  <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-  <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-  <link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
-  <link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
-  <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
-  <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
-  <meta name="theme-color" content="#563d7c">
-  <link href="sign-up.component.css" rel="stylesheet">
-</head>
 <body class="text-center">
 <div *ngIf="isSignedUp; else signupForm">
   Your registration is successful. Please login!
@@ -28,14 +6,14 @@
 <ng-template #signupForm>
   <div class="row col-sm-6 form-class form-text-class">
     <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" class="form-class" novalidate>
-      <div class="form-group">
+      <div class="form-group group-style">
         <label for="name">Your name</label>
         <input type="text" class="form-control" id="name" name="name" [(ngModel)]="form.name" #name="ngModel" required/>
         <div *ngIf="f.submitted && name.invalid">
           <div *ngIf="name.errors.required">Name is required</div>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group group-style">
         <label for="username">Username</label>
         <input type="text" class="form-control" id="username" name="username" [(ngModel)]="form.username"
                #username="ngModel"
@@ -67,17 +45,19 @@
         <div>
           <label for="role">Role</label>
         </div>
-        <div>
-          <input type="radio" id="role" name="role" [(ngModel)]="form.role"
-                 #role="ngModel" value="MANAGER" required> Manager
-        </div>
-        <div>
-          <input type="radio" name="role" [(ngModel)]="form.role"
-                 #role="ngModel" value="CARGO_OWNER"required> Cargo owner
-        </div>
-        <div>
-          <input type="radio" name="role" [(ngModel)]="form.role"
-                 #role="ngModel" value="TRANSPORTER"required> Transporter
+        <div class="radio-group">
+          <div class="radio-but-style">
+            <input type="radio" id="role" name="role" [(ngModel)]="form.role"
+                   #role="ngModel" value="MANAGER" required> Manager
+          </div>
+          <div class="radio-but-style">
+            <input type="radio" name="role" [(ngModel)]="form.role"
+                   #role="ngModel" value="CARGO_OWNER" required> Cargo owner
+          </div>
+          <div class="radio-but-style">
+            <input type="radio" name="role" [(ngModel)]="form.role"
+                   #role="ngModel" value="TRANSPORTER" required> Transporter
+          </div>
         </div>
         <div *ngIf="role.invalid">
           Role required.
@@ -93,4 +73,3 @@
   </div>
 </ng-template>
 </body>
-</html>

@@ -1,12 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link href="home.component.css" rel="stylesheet">
-  <title>Home page</title>
-</head>
-
 <body class="text-center">
 <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
   <main role="main" class="inner cover">
@@ -14,7 +5,32 @@
     <p class="lead">
       On this service you will find all the tools for owners, carriers and managers. Everything is assembled in one place for you. Our service is constantly updated and improved, as we value each client and expand our client base. If you have questions or suggestions, please contact us.
     </p>
+    <ngb-carousel [showNavigationIndicators]="showNavigationIndicators" class="carousel lead">
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <h3>Cargo owner:</h3>
+          <p class="carousel-text">
+            Can add, delete or modify cargoes, see cargoes or see the trips in which its cargoes takes part. Communicate with the manager
+          </p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <h3>Manager:</h3>
+          <p class="carousel-text">
+          Can see all trips, all cargoes on the platform, mark the trip and cargo as paid, see all users
+          </p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <h3>Driver:</h3>
+          <p class="carousel-text">
+            Сan see the list of available cargoes and create a trip, see the current flight and update the city of location. Communicate with the manager
+            </p>
+        </div>
+      </ng-template>
+    </ngb-carousel>
   </main>
 </div>
 </body>
-</html>

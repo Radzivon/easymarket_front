@@ -2,14 +2,28 @@
   max-width: 100%;
   max-height: 100%;
   position: absolute;
-  top: 5%;
+  top: 15%;
   left: 50%;
   margin-right: -50%;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%);
 }
 .form-text-class {
   color: #feca00;
   position: absolute;
+  font-size: 16px;
+}
+.group-style {
+  float: left;
+}
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.radio-but-style {
+  margin-left: 10px;
 }
 .btn-color{
   color: #feca00;
@@ -34,4 +48,3 @@
 *, ::after, ::before {
   box-sizing: border-box;
 }
-

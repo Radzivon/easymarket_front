@@ -27,12 +27,21 @@
 *, ::after, ::before {
   box-sizing: border-box;
 }
-
 div {
   display: block;
 }
 .text-center {
   text-align: center!important;
+}
+.carousel {
+  outline: #0d1316;
+  font-size: small;
+  maxwidth: 100%;
+}
+.carousel-text {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 body {
   display: -ms-flexbox;

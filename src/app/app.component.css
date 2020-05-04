@@ -16,7 +16,7 @@
 }
 .nice-footer {
   position: fixed; /* Фиксированное положение */
-  left: 0; bottom: 0; /* Левый нижний угол */
+  left: 0; bottom: 30px; /* Левый нижний угол */
   padding: 10px; /* Поля вокруг текста */
   background-color: #0d1316;
   height: 40px;
