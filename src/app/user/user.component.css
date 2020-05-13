@@ -1,0 +1,16 @@
+.container {
+  background-color: #0d1316;
+}
+.card-header {
+  background-color: #0d1316;
+  border-color: #0d1316;
+  color: #feca00;
+}
+.card {
+  top: 35px;
+  background-color: #0d1316;
+  border-color: #0d1316;
+}
+.card-body {
+  color: #ffec9b;
+}

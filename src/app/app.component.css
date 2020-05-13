@@ -16,10 +16,9 @@
 }
 .nice-footer {
   position: fixed; /* Фиксированное положение */
-  left: 0; bottom: 30px; /* Левый нижний угол */
+  left: 0; bottom: 0; /* Левый нижний угол */
   padding: 10px; /* Поля вокруг текста */
   background-color: #0d1316;
-  height: 40px;
   width: 100%; /* Ширина слоя */
   color: #e8b000;
 }
@@ -36,8 +35,8 @@ h1 {
   font-size: 2em;
   margin-block-start: 0.67em;
   margin-block-end: 0.67em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
   font-weight: bold;
 }
 body {

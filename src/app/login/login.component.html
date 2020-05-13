@@ -1,6 +1,10 @@
 <body class="text-center">
 <div *ngIf="isLoggedIn; else loggedOut">
-  <app-user></app-user>
+  <div [ngSwitch]="user.role" class="nav-tabs">
+    <ng-template ngSwitchCase="MANAGER"><app-manager></app-manager></ng-template>
+    <ng-template ngSwitchCase="TRANSPORTER"><app-transporter></app-transporter></ng-template>
+    <ng-template ngSwitchDefault><app-cargo-owner></app-cargo-owner></ng-template>
+  </div>
 </div>
 
 <ng-template #loggedOut>

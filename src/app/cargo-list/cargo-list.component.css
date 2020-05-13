@@ -1,0 +1,10 @@
+.table th {
+  color: #feca00;
+  border-top: 1px solid #ffec9b;
+}
+.table thead th {
+  border-bottom: 2px solid #ffec9b;
+}
+tbody {
+  color: #ffec9b;
+}

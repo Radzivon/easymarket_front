@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {LoginInfo} from "../model/loginInfo/login-info";
 import {AuthService} from "../services/auth/auth.service";
 import {TokenStorageService} from "../services/tokenStorage/token-storage.service";
+import {UserService} from "../services/user/user.service";
+import {User} from "../model/user/user";
 
 @Component({
   selector: 'app-login',
@@ -15,10 +17,12 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
   private loginInfo: LoginInfo;
+  user: User;
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private userService: UserService) { }
 
   ngOnInit() {
+    this.getUser();
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getAuthorities();
@@ -51,5 +55,11 @@ export class LoginComponent implements OnInit {
 
   reloadPage() {
     window.location.reload();
+  }
+
+  getUser() {
+    const infoUser = this.userService.getUserInfo().subscribe(data => {
+      this.user = JSON.parse(data);
+    })
   }
 }
