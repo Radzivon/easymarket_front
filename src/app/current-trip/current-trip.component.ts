@@ -25,7 +25,6 @@ export class CurrentTripComponent implements OnInit {
   }
 
   getCurrentTrips() {
-    const userId = 2;
     this.tripService.getCurrentTrips().subscribe(data => {
       const pageOrders = JSON.parse(data);
       this.trips = pageOrders.content;
@@ -63,5 +62,12 @@ export class CurrentTripComponent implements OnInit {
     this.tripEditService.tripForEdit = trip;
     this.router.navigate(
       ['/trip/edit/', trip.id]);
+  }
+
+  finishTrip(trip: Trip) {
+    this.tripService.finishTrip(trip).subscribe(data => {
+        this.getCurrentTrips();
+      }
+    );
   }
 }
