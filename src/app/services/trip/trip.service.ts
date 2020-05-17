@@ -14,7 +14,7 @@ export class TripService {
   private baseUrl = 'http://localhost:8080/';
   private tripAllUrl = 'trip/all';
   private tripUrl = 'trip/';
-  private tripCurrent = 'trip/current/';
+  private tripCurrent = 'trip/current';
   private tripAddUrl = 'trip/add';
   private tripEdit = 'trip/edit/';
   private tripFinishUrl = 'trip/finish/';
@@ -48,8 +48,9 @@ export class TripService {
     return this.http.put(this.baseUrl + this.tripEdit + trip.id, trip);
   }
 
-  getCurrentTrips(): Observable<string> {
-    return this.http.get(this.baseUrl + this.tripCurrent, {responseType: 'text'})
+  getCurrentTrips(page: number, pageSize: number, sortBy: string, sortDir: string): Observable<string> {
+    return this.http.get(this.baseUrl + this.tripCurrent + '?' + this.pageStr + page + this.and + this.pageSizeStr + pageSize + this.and + this.sortByStr + sortBy
+      + this.and + this.order + sortDir, {responseType: 'text'})
   }
 
   editTrip(trip: Trip) {
