@@ -1,18 +1,22 @@
-<div class="container">
-  <div class="card">
-    <div class="card-header">
-      <div *ngIf="user.role">
-        <p>{{user.role}}</p>
+<div *ngIf="!user;else userTemplate">
+<h2>Oooooops!!!
+  Houston, we have a problem</h2>
+</div>
+<ng-template #userTemplate>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+          <p>{{user.role}}</p>
       </div>
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">Name: {{user.name}}</h5>
-      <div *ngIf="user.isBlock; then thenBlock else elseBlock"></div>
-      <ng-template class="card-text" #elseBlock>Status: good)</ng-template>
-      <ng-template class="card-text" #thenBlock>Status: bad(</ng-template>
-      <p class="card-text">Email: {{user.email}}</p>
-      <div class="card-text">
+      <div class="card-body">
+        <h5 class="card-title">Name: {{user.name}}</h5>
+        <div *ngIf="user.isBlock; then thenBlock else elseBlock"></div>
+        <ng-template class="card-text" #elseBlock>Status: good)</ng-template>
+        <ng-template class="card-text" #thenBlock>Status: bad(</ng-template>
+        <p class="card-text">Email: {{user.email}}</p>
+        <div class="card-text">
+        </div>
       </div>
     </div>
   </div>
-</div>
+</ng-template>
