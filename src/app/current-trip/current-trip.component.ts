@@ -25,8 +25,7 @@ export class CurrentTripComponent implements OnInit {
   }
 
   getCurrentTrips() {
-    const userId = 2;
-    this.tripService.getCurrentTrips().subscribe(data => {
+    this.tripService.getCurrentTrips(this.pageNumber, this.pageSize, this.sortBy, this.sortDirection).subscribe(data => {
       const pageOrders = JSON.parse(data);
       this.trips = pageOrders.content;
       this.pages = new Array<number>(pageOrders.totalPages);
@@ -63,5 +62,12 @@ export class CurrentTripComponent implements OnInit {
     this.tripEditService.tripForEdit = trip;
     this.router.navigate(
       ['/trip/edit/', trip.id]);
+  }
+
+  finishTrip(trip: Trip) {
+    this.tripService.finishTrip(trip).subscribe(data => {
+        this.getCurrentTrips();
+      }
+    );
   }
 }
