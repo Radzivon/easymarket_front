@@ -9,7 +9,7 @@ import {UserService} from "../services/user/user.service";
 })
 export class UserListComponent implements OnInit {
   pageNumber = 0;
-  pageSize = 20;
+  pageSize = 3;
   sortBy = 'id';
   sortDirection = 'asc';
   users: Array<User>;
@@ -24,7 +24,8 @@ export class UserListComponent implements OnInit {
 
   getUsers() {
     this.userService.getUserAll(this.pageNumber, this.pageSize, this.sortBy, this.sortDirection).subscribe(data => {
-        const pageOrders = JSON.parse(data);
+      console.log(data);
+      const pageOrders = JSON.parse(data);
         this.users = pageOrders.content;
         this.pages = new Array<number>(pageOrders.totalPages);
       }, error => {
@@ -34,6 +35,7 @@ export class UserListComponent implements OnInit {
   }
 
   setPageNumber(i, event: any) {
+    console.log(i)
     event.preventDefault();
     this.pageNumber = i;
     this.getUsers();

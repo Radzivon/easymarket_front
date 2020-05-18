@@ -1,7 +1,4 @@
 <div>
-  <button>New User</button>
-</div>
-<div>
   <table class="table table-striped">
     <thead>
     <tr>
@@ -30,16 +27,15 @@
         </ng-template>
       <td>
       <div *ngIf="!user.isBlock;else unblock">
-        <button (click)="blockUser(user.id)">Block</button>
+        <button (click)="blockUser(user.id)" class="btn btn-color">Block</button>
       </div>
       <ng-template #unblock>
-        <button (click)="unblockUser(user.id)">Unblock</button>
+        <button (click)="unblockUser(user.id)" class="btn btn-color">Unblock</button>
       </ng-template>
       </td>
     </tr>
     </tbody>
   </table>
-  <hr>
   <ul class="nav nav-pills">
     <li class="nav-item" *ngFor="let p of pages; let i=index">
       <a class="nav-link" href="#" (click)="setPageNumber(i,$event)" [ngClass]="{'active':i==pageNumber}">{{i + 1}}</a>
