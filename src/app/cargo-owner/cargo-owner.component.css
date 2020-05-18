@@ -1,0 +1,40 @@
+a {
+  color: #feca00;
+}
+a:hover {
+  color: #ffec9b;
+  border-color: #ffec9b;
+}
+.nav-link:focus {
+  background-color: #feca00;
+  color: #0d1316;
+  border-color: #ffec9b;
+}
+.nav-link:hover {
+  border-color: #ffec9b;
+}
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  color: #0d1316;
+  background-color: #feca00;
+  border-color: #ffec9b;
+}
+.nav-tabs {
+  border-color: #ffec9b;
+}
+.btn-color{
+  color: #feca00;
+  background-color: #0d1316;
+  border-color: #0d1316;
+  lighting-color: #feca00;
+}
+.btn-color:hover {
+  color: #0d1316;
+  background-color: #feca00;
+  border-color: #0d1316;
+  lighting-color: #0d1316;
+}
+.addNew {
+  width: 300px;
+  height: 300px;
+  overflow: scroll;
+}

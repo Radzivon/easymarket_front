@@ -1,0 +1,23 @@
+.form-style {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  display: table-cell;
+  vertical-align: middle;
+  color: #feca00;
+}
+.group-style {
+  float: left;
+}
+.btn-color{
+  color: #feca00;
+  background-color: #0d1316;
+  border-color: #0d1316;
+  lighting-color: #feca00;
+}
+.btn-color:hover {
+  color: #0d1316;
+  background-color: #feca00;
+  border-color: #0d1316;
+  lighting-color: #0d1316;
+}

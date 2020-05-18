@@ -1,117 +1,104 @@
-<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-  <ngb-panel title="User info">
-    <ng-template ngbPanelContent>
-      <app-user></app-user>
+<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+  <li [ngbNavItem]="1">
+    <a ngbNavLink>My cargo list</a>
+    <ng-template ngbNavContent>
+      <div>
+        <button (click)="goToNewCargo()" class="btn btn-color">New cargo</button>
+      </div>
+      <div>
+        <div>
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Weight</th>
+              <th scope="col">Width</th>
+              <th scope="col">Length</th>
+              <th scope="col">Height</th>
+              <th scope="col">Location</th>
+              <th scope="col">Condition</th>
+              <th scope="col">Transportation cost</th>
+              <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let cargo of cargos">
+              <td><a routerLink="">{{cargo.id}}</a></td>
+              <td>{{ cargo.name }}</td>
+              <td>{{ cargo.weight}}</td>
+              <td>{{ cargo.width}}</td>
+              <td>{{ cargo.length}}</td>
+              <td>{{ cargo.height}}</td>
+              <td>{{cargo.cargoCondition}}</td>
+              <td>{{ cargo.location}}</td>
+              <td>{{ cargo.transportationCost}}</td>
+              <td>
+                <div *ngIf="cargo.cargoCondition === 'FREE'; else notEdited">
+                  <button (click)="editCargo(cargo.id)">Edit</button>
+                  <button (click)="deleteCargo(cargo)">Delete</button>
+                </div>
+
+                <ng-template #notEdited>
+                  <div>Not edited</div>
+                </ng-template>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <hr>
+          <ul class="nav nav-pills">
+            <li class="nav-item" *ngFor="let p of pagesCargo; let i=index">
+              <a class="nav-link" href="#" (click)="setPageNumber(i,$event)"
+                 [ngClass]="{'active':i==pageNumber}">{{i + 1}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </ng-template>
-  </ngb-panel>
-  <ngb-panel title="Action">
-    <ng-template ngbPanelContent>
-      <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
-
-        <li [ngbNavItem]="1">
-          <a ngbNavLink>My cargo list</a>
-          <ng-template ngbNavContent>
-            <div>
-              <button (click)="goToNewCargo()">New cargo</button>
-            </div>
-            <div>
-              <div>
-                <table class="table table-striped">
-                  <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Weight</th>
-                    <th scope="col">Width</th>
-                    <th scope="col">Length</th>
-                    <th scope="col">Height</th>
-                    <th scope="col">Location</th>
-                    <th scope="col">Condition</th>
-                    <th scope="col">Transportation cost</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr *ngFor="let cargo of cargos">
-                    <td><a routerLink="">{{cargo.id}}</a></td>
-                    <td>{{ cargo.name }}</td>
-                    <td>{{ cargo.weight}}</td>
-                    <td>{{ cargo.width}}</td>
-                    <td>{{ cargo.length}}</td>
-                    <td>{{ cargo.height}}</td>
-                    <td>{{cargo.cargoCondition}}</td>
-                    <td>{{ cargo.location}}</td>
-                    <td>{{ cargo.transportationCost}}</td>
-                    <td>
-                      <div *ngIf="cargo.cargoCondition === 'FREE'; else notEdited">
-                        <button (click)="editCargo(cargo.id)">Edit</button>
-                        <button (click)="deleteCargo(cargo)">Delete</button>
-                      </div>
-
-                        <ng-template #notEdited>
-                          <div>Not edited</div>
-                        </ng-template>
-                    </td>
-                  </tr>
-                  </tbody>
-                </table>
-                <hr>
-                <ul class="nav nav-pills">
-                  <li class="nav-item" *ngFor="let p of pagesCargo; let i=index">
-                    <a class="nav-link" href="#" (click)="setPageNumber(i,$event)"
-                       [ngClass]="{'active':i==pageNumber}">{{i + 1}}</a>
-                  </li>
-                </ul>
+  </li>
+  <li [ngbNavItem]="2">
+    <a ngbNavLink>Cargo in trip</a>
+    <ng-template ngbNavContent>
+      <div>
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Current city</th>
+            <th scope="col">Car</th>
+            <th scope="col">Paid</th>
+            <th scope="col">Condition</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let trip of trips">
+            <td><a routerLink="trip/{{trip.id}}}">{{trip.id}}</a></td>
+            <td>{{ trip.currentCity }}</td>
+            <td>{{ trip.car}}</td>
+            <td>
+              <div *ngIf="trip.isPaid;else notPaid">
+                <p style="color: green">Paid</p>
               </div>
-            </div>
-          </ng-template>
-        </li>
-        <li [ngbNavItem]="2">
-          <a ngbNavLink>Cargo in trip</a>
-          <ng-template ngbNavContent>
-            <div>
-              <table class="table table-striped">
-                <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Current city</th>
-                  <th scope="col">Car</th>
-                  <th scope="col">Paid</th>
-                  <th scope="col">Condition</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let trip of trips">
-                  <td><a routerLink="trip/{{trip.id}}}">{{trip.id}}</a></td>
-                  <td>{{ trip.currentCity }}</td>
-                  <td>{{ trip.car}}</td>
-                  <td>
-                    <div *ngIf="trip.isPaid;else notPaid">
-                      <p style="color: green">Paid</p>
-                    </div>
-                    <ng-template #notPaid>
-                      <p style="color: red">Not paid</p>
-                    </ng-template>
-                  </td>
-                  <td>
-                    {{trip.tripCondition}}
-                  </td>
-                </tr>
-                </tbody>
-              </table>
-              <hr>
-              <ul class="nav nav-pills">
-                <li class="nav-item" *ngFor="let p of pagesTrip; let i=index">
-                  <a class="nav-link" href="#" (click)="setPageNumber(i,$event)"
-                     [ngClass]="{'active':i==pageNumber}">{{i + 1}}</a>
-                </li>
-              </ul>
-            </div>
-          </ng-template>
-        </li>
-      </ul>
-      <div [ngbNavOutlet]="nav" class="mt-2"></div>
+              <ng-template #notPaid>
+                <p style="color: red">Not paid</p>
+              </ng-template>
+            </td>
+            <td>
+              {{trip.tripCondition}}
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <hr>
+        <ul class="nav nav-pills">
+          <li class="nav-item" *ngFor="let p of pagesTrip; let i=index">
+            <a class="nav-link" href="#" (click)="setPageNumber(i,$event)"
+               [ngClass]="{'active':i==pageNumber}">{{i + 1}}</a>
+          </li>
+        </ul>
+      </div>
     </ng-template>
-  </ngb-panel>
-
-</ngb-accordion>
+  </li>
+</ul>
+<div [ngbNavOutlet]="nav" class="mt-2"></div>
