@@ -45,7 +45,6 @@
                     </svg>
                   </button>
                 </div>
-
                 <ng-template #notEdited>
                   <div>Not edited</div>
                 </ng-template>
@@ -105,9 +104,11 @@
   </li>
 </ul>
 <div [ngbNavOutlet]="nav" class="mt-2"></div>
+<div>
 <ul class="nav nav-pills">
   <li class="nav-item" *ngFor="let p of pagesTrip; let i=index">
     <a class="nav-link" href="#" (click)="setPageNumber(i,$event)"
        [ngClass]="{'active':i==pageNumber}">{{i + 1}}</a>
   </li>
 </ul>
+</div>

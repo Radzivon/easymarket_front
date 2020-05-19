@@ -68,9 +68,8 @@ tbody {
   background-color: #feca00;
   border-color: #0d1316;
   lighting-color: #0d1316;
+}
+.nav-pills {
   position: fixed;
   bottom: 105px;
-}
-.btn-position {
-  float: left;
 }

@@ -1,0 +1,31 @@
+.form-style {
+  width: 100%;
+  margin: auto;
+  display: inline-block;
+  vertical-align: middle;
+  color: #feca00;
+}
+.group-style {
+  margin: auto;
+  display: inline-block;
+  overflow: hidden;
+}
+.btn-color{
+  color: #feca00;
+  background-color: #0d1316;
+  border-color: #0d1316;
+  lighting-color: #feca00;
+}
+.btn-color:hover {
+  color: #0d1316;
+  background-color: #feca00;
+  border-color: #0d1316;
+  lighting-color: #0d1316;
+}
+.btn-class {
+  margin: auto;
+  display: inline-block;
+}
+input.ng-touched.ng-invalid{
+  border-color: red;
+}
