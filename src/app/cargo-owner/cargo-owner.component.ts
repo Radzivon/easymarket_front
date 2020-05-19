@@ -13,7 +13,7 @@ import {Trip} from "../model/trip/trip";
 })
 export class CargoOwnerComponent implements OnInit {
   pageNumber = 0;
-  pageSize = 20;
+  pageSize = 3;
   sortBy = 'id';
   sortDirection = 'asc';
   cargos: Array<Cargo>;
