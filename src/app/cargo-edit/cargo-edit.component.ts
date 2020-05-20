@@ -22,13 +22,13 @@ export class CargoEditComponent implements OnInit {
               private route: ActivatedRoute, private router: Router, private location: Location) {
     this.routeSubscription = route.params.subscribe(params => this.id = params['id']);
     this.form = this.formBuilder.group({
-      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      weight: new FormControl(0, [Validators.required, Validators.min(0)]),
-      width: new FormControl(0, [Validators.required, Validators.min(0)]),
-      length: new FormControl(0, [Validators.required, Validators.min(0)]),
-      height: new FormControl(0, [Validators.required, Validators.min(0)]),
-      location: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      transportationCost: new FormControl(0, [Validators.required, Validators.min(0)]),
+      name: new FormControl('', [Validators.required, Validators.minLength(1)]),
+      weight: new FormControl(0, [Validators.required, Validators.pattern(/^[1-9][0-9]*$/)]),
+      width: new FormControl(0, [Validators.required, Validators.pattern(/^[1-9][0-9]*$/)]),
+      length: new FormControl(0, [Validators.required, Validators.pattern(/^[1-9][0-9]*$/)]),
+      height: new FormControl(0, [Validators.required, Validators.pattern(/^[1-9][0-9]*$/)]),
+      location: new FormControl('', [Validators.required, Validators.pattern(/^[A-ZА-Я]{1}[a-zа-яё]+$/)]),
+      transportationCost: new FormControl(0, [Validators.required, Validators.pattern(/^[0-9]+$/)]),
     });
 
   }
@@ -70,8 +70,9 @@ export class CargoEditComponent implements OnInit {
     updatedCargo.transportationCost = this.getTransportationCostControl().value;
     updatedCargo.isPaid = false;
     updatedCargo.cargoCondition = "FREE";
-
+    console.log(updatedCargo)
     this.cargoService.updateCargo(updatedCargo);
+    this.goBack();
   }
 
   goBack() {
@@ -106,4 +107,9 @@ export class CargoEditComponent implements OnInit {
     return this.form.get('height');
   }
 
+  getAllControl() {
+    return this.getNameControl().invalid || this.getLocationControl().invalid || this.getWeightControl().invalid
+      || this.getWidthControl().invalid || this.getLengthControl().invalid
+      || this.getTransportationCostControl().invalid || this.getHeightControl().invalid
+  }
 }

@@ -1,85 +1,61 @@
-<form [formGroup]="form" novalidate>
-  <div class="form-group group-style">
-    <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" name="name" formControlName="name" required/>
-  </div>
-  <div *ngIf="getNameControl().invalid && (getNameControl().touched)"
-       class="alert alert-danger">
-    <div *ngIf="getNameControl().errors.required">
-      Name is required.
+<div class="form-style">
+  <form [formGroup]="form" novalidate>
+    <div>
+      <div class="form-group group-style">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" formControlName="name" required/>
+      </div>
+      <div class="form-group group-style">
+        <label for="weight">Weight</label>
+        <input type="number" class="form-control" id="weight" name="weight" formControlName="weight" required/>
+      </div>
+      <div class="form-group group-style">
+        <label for="width">Width</label>
+        <input type="number" class="form-control" id="width" name="width" formControlName="width" required/>
+      </div>
+      <div class="form-group group-style">
+        <label for="length">Length</label>
+        <input type="number" class="form-control" id="length" name="length" formControlName="length" required/>
+      </div>
     </div>
-    <div *ngIf="getNameControl().errors.minLength">
-      Name must be at least 4 characters long.
+    <div>
+      <div class="form-group group-style">
+        <label for="height">Height</label>
+        <input type="number" class="form-control" id="height" name="height" formControlName="height" required/>
+      </div>
+      <div class="form-group group-style">
+        <label for="location">Location</label>
+        <input type="text" class="form-control" id="location" name="location" formControlName="location" required/>
+      </div>
+      <div class="form-group group-style">
+        <label for="transportationCost">Transportation cost</label>
+        <input type="number" class="form-control" id="transportationCost" name="transportationCost"
+               formControlName="transportationCost" required/>
+      </div>
+      <div *ngIf="getTransportationCostControl().invalid && (getTransportationCostControl().touched)"
+           class="alert alert-danger">
+      </div>
     </div>
-  </div>
-  <div class="form-group group-style">
-    <label for="weight">Weight</label>
-    <input type="number" class="form-control" id="weight" name="weight" formControlName="weight" required/>
-  </div>
-  <div *ngIf="getWeightControl().invalid && (getWeightControl().touched)"
-       class="alert alert-danger">
-    <div *ngIf="getWeightControl().errors.required">
-      Weight is required.
+    <div>
+      <div *ngIf="getAllControl(); then thenBlock else elseBlock"></div>
+      <ng-template #thenBlock class="btn-class">
+        <button class="btn btn-color" type="button" disabled>Update</button>
+      </ng-template>
+      <ng-template #elseBlock>
+        <div (click)="saveCargo()" class="btn-class">
+          <button class="btn btn-color" type="button">Update</button>
+        </div>
+      </ng-template>
+      <div (click)="goBack()" class="btn-class">
+        <button class="btn btn-color" type="button">Back</button>
+      </div>
     </div>
-  </div>
-  <div class="form-group group-style">
-    <label for="width">Width</label>
-    <input type="number" class="form-control" id="width" name="width" formControlName="width" required/>
-  </div>
-  <div *ngIf="getWidthControl().invalid && (getWidthControl().touched)"
-       class="alert alert-danger">
-    <div *ngIf="getWidthControl().errors.required">
-      Width is required.
-    </div>
-  </div>
-  <div class="form-group group-style">
-    <label for="length">Length</label>
-    <input type="number" class="form-control" id="length" name="length" formControlName="length" required/>
-  </div>
-  <div *ngIf="getLengthControl().invalid && (getLengthControl().touched)"
-       class="alert alert-danger">
-    <div *ngIf="getLengthControl().errors.required">
-      Length is required.
-    </div>
-  </div>
-  <div class="form-group group-style">
-    <label for="height">Height</label>
-    <input type="number" class="form-control" id="height" name="height" formControlName="height" required/>
-  </div>
-  <div *ngIf="getHeightControl().invalid && (getHeightControl().touched)"
-       class="alert alert-danger">
-    <div *ngIf="getHeightControl().errors.required">
-      Height is required.
-    </div>
-  </div>
-  <div class="form-group group-style">
-    <label for="location">Location</label>
-    <input type="text" class="form-control" id="location" name="location" formControlName="location" required/>
-  </div>
-  <div *ngIf="getLocationControl().invalid && (getLocationControl().touched)"
-       class="alert alert-danger">
-    <div *ngIf="getLocationControl().errors.required">
-      Location is required.
-    </div>
-    <div *ngIf="getLocationControl().errors.minLength">
-      Location must be at least 4 characters long.
-    </div>
-  </div>
-  <div class="form-group group-style">
-    <label for="transportationCost">Transportation cost</label>
-    <input type="number" class="form-control" id="transportationCost" name="transportationCost"
-           formControlName="transportationCost" required/>
-  </div>
-  <div *ngIf="getTransportationCostControl().invalid && (getTransportationCostControl().touched)"
-       class="alert alert-danger">
-    <div *ngIf="getTransportationCostControl().errors.required">
-      Transportation cost is required.
-    </div>
-  </div>
-  <div class="form-group" (click)="saveCargo()">
-    <button class="btn btn-outline-dark" type="button">Update</button>
-  </div>
-</form>
-<div (click)="saveCargo()">
-  <button class="btn btn-outline-dark" type="button" (click)="goBack()">Back</button>
+  </form>
+  <!--  <div class="form-group" (click)="saveCargo()">-->
+  <!--    <button class="btn btn-outline-dark" type="button">Update</button>-->
+  <!--  </div>-->
+  <!--</form>-->
+  <!--<div (click)="saveCargo()">-->
+  <!--  <button class="btn btn-outline-dark" type="button" (click)="goBack()">Back</button>-->
+  <!--</div>-->
 </div>

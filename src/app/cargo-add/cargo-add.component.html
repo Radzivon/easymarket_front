@@ -34,7 +34,7 @@
       </div>
     </div>
     <div>
-      <div *ngIf="getNameControl().invalid; then thenBlock else elseBlock"></div>
+      <div *ngIf="getAllControl(); then thenBlock else elseBlock"></div>
       <ng-template #thenBlock class="btn-class">
         <button class="btn btn-color" type="button" disabled>Add</button>
       </ng-template>

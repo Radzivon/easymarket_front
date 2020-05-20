@@ -81,4 +81,10 @@ export class CargoAddComponent implements OnInit {
   getHeightControl() {
     return this.form.get('height');
   }
+
+  getAllControl() {
+    return this.getNameControl().invalid || this.getLocationControl().invalid || this.getWeightControl().invalid
+      || this.getWidthControl().invalid || this.getLengthControl().invalid
+      || this.getTransportationCostControl().invalid || this.getHeightControl().invalid
+  }
 }

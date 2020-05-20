@@ -11,7 +11,7 @@ import {TripService} from "../services/trip/trip.service";
 })
 export class TransporterComponent implements OnInit {
   pageNumber = 0;
-  pageSize = 20;
+  pageSize = 4;
   sortBy = 'id';
   sortDirection = 'asc';
   cargo: Array<Cargo>;

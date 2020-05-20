@@ -26,6 +26,6 @@
   margin: auto;
   display: inline-block;
 }
-input.ng-touched.ng-invalid{
+input.ng-invalid{
   border-color: red;
 }

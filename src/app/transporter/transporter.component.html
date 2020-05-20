@@ -1,27 +1,15 @@
-<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-  <ngb-panel title="User info">
-    <ng-template ngbPanelContent>
-      <app-user></app-user>
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+  <li [ngbNavItem]="1">
+    <a ngbNavLink>Free cargo list</a>
+    <ng-template ngbNavContent>
+      <app-trip-add></app-trip-add>
     </ng-template>
-  </ngb-panel>
-  <ngb-panel title="Action">
-    <ng-template ngbPanelContent>
-      <ul ngbNav #nav="ngbNav" class="nav-tabs">
-        <li [ngbNavItem]="1">
-          <a ngbNavLink>Free cargo list</a>
-          <ng-template ngbNavContent>
-            <app-trip-add></app-trip-add>
-          </ng-template>
-        </li>
-        <li [ngbNavItem]="2">
-          <a ngbNavLink>Current trip list</a>
-          <ng-template ngbNavContent>
-            <app-current-trip></app-current-trip>
-          </ng-template>
-        </li>
-      </ul>
-      <div [ngbNavOutlet]="nav" class="mt-2"></div>
+  </li>
+  <li [ngbNavItem]="2">
+    <a ngbNavLink>Current trip list</a>
+    <ng-template ngbNavContent>
+      <app-current-trip></app-current-trip>
     </ng-template>
-  </ngb-panel>
-</ngb-accordion>
-
+  </li>
+</ul>
+<div [ngbNavOutlet]="nav" class="mt-2"></div>

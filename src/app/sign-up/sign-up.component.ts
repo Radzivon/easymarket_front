@@ -18,6 +18,7 @@ export class SignUpComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.form.role = 'MANAGER';
   }
 
   onSubmit() {
