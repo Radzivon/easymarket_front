@@ -71,7 +71,7 @@ export class CargoEditComponent implements OnInit {
     updatedCargo.isPaid = false;
     updatedCargo.cargoCondition = "FREE";
 
-    this.cargoService.updateCargo(updatedCargo);
+    this.cargoService.updateCargo(updatedCargo).subscribe();
   }
 
   goBack() {

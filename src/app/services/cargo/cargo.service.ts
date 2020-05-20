@@ -17,7 +17,7 @@ export class CargoService {
   private cargoAllByUserIdUrl = 'cargo/user';
   private cargoUrl = 'cargo/';
   private deleteCargoUrl = 'cargo/delete/';
-  private updateCargoUrl = 'cargo/update/';
+  private updateCargoUrl = 'cargo/edit/';
   private cargoPaidUrl = 'cargo/paid/';
   private cargoAddUrl = 'cargo/add';
   private pageStr = 'page=';
@@ -52,7 +52,7 @@ export class CargoService {
   }
 
   updateCargo(cargo: Cargo) {
-    return this.http.put(this.baseUrl + this.updateCargoUrl + cargo.id, JSON.stringify(cargo));
+    return this.http.put(this.baseUrl + this.updateCargoUrl + cargo.id, JSON.stringify(cargo), httpOptions);
   }
 
   saveCargo(cargo: Cargo) {
