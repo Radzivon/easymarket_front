@@ -70,4 +70,6 @@ div {
   background-color: #feca00;
   border-color: #0d1316;
 }
-
+input.ng-touched.ng-invalid{
+  border-color: red;
+}

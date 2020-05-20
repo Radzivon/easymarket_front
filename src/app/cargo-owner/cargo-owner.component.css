@@ -38,3 +38,38 @@ a:hover {
   height: 300px;
   overflow: scroll;
 }
+.table th {
+  color: #feca00;
+  border-top-color: #0d1316;
+}
+.table thead th {
+  border-bottom: 2px solid #5d6d7c;
+}
+tbody {
+  color: #ffec9b;
+}
+.table td {
+  border-color: #5d6d7c;
+}
+.btn-color{
+  color: #feca00;
+  background-color: #0d1316;
+  border-color: #0d1316;
+  lighting-color: #feca00;
+}
+.btn-color:hover {
+  color: #0d1316;
+  background-color: #feca00;
+  border-color: #0d1316;
+  lighting-color: #0d1316;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: #0d1316;
+  background-color: #feca00;
+  border-color: #0d1316;
+  lighting-color: #0d1316;
+}
+.nav-pills {
+  position: fixed;
+  bottom: 105px;
+}

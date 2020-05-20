@@ -17,13 +17,13 @@ export class CargoAddComponent implements OnInit {
   constructor(private cargoService: CargoService, private formBuilder: FormBuilder,
               private route: ActivatedRoute, private router: Router, private location: Location) {
     this.form = this.formBuilder.group({
-      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      weight: new FormControl(0, [Validators.required, Validators.min(0)]),
-      width: new FormControl(0, [Validators.required, Validators.min(0)]),
-      length: new FormControl(0, [Validators.required, Validators.min(0)]),
-      height: new FormControl(0, [Validators.required, Validators.min(0)]),
-      location: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      transportationCost: new FormControl(0, [Validators.required, Validators.min(0)]),
+      name: new FormControl('', [Validators.required, Validators.minLength(1)]),
+      weight: new FormControl(0, [Validators.required, Validators.pattern(/^[1-9][0-9]*$/)]),
+      width: new FormControl(0, [Validators.required, Validators.pattern(/^[1-9][0-9]*$/)]),
+      length: new FormControl(0, [Validators.required, Validators.pattern(/^[1-9][0-9]*$/)]),
+      height: new FormControl(0, [Validators.required, Validators.pattern(/^[1-9][0-9]*$/)]),
+      location: new FormControl('', [Validators.required, Validators.pattern(/^[A-ZА-Я]{1}[a-zа-яё]+$/)]),
+      transportationCost: new FormControl(0, [Validators.required, Validators.pattern(/^[0-9]+$/)]),
     });
   }
 

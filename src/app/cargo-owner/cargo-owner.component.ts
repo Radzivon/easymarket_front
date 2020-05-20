@@ -13,7 +13,7 @@ import {Trip} from "../model/trip/trip";
 })
 export class CargoOwnerComponent implements OnInit {
   pageNumber = 0;
-  pageSize = 20;
+  pageSize = 4;
   sortBy = 'id';
   sortDirection = 'asc';
   cargos: Array<Cargo>;
@@ -87,6 +87,7 @@ export class CargoOwnerComponent implements OnInit {
 
   deleteCargo(cargo: Cargo) {
     this.cargoService.deleteCargo(cargo.id);
+    window.location.reload();
   }
 
   goToNewCargo() {

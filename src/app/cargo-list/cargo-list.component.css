@@ -1,3 +1,10 @@
+a {
+  color: #feca00;
+}
+a:hover {
+  color: #ffec9b;
+  border-color: #ffec9b;
+}
 .table th {
   color: #feca00;
   border-top-color: #0d1316;
@@ -7,6 +14,7 @@
 }
 tbody {
   color: #ffec9b;
+  width: 400px;
 }
 .table td {
   border-color: #5d6d7c;
@@ -28,4 +36,11 @@ tbody {
   background-color: #feca00;
   border-color: #0d1316;
   lighting-color: #0d1316;
+}
+ul {
+  position: fixed;
+  bottom: 105px;
+}
+img {
+  color: #feca00;
 }

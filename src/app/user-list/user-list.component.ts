@@ -9,7 +9,7 @@ import {UserService} from "../services/user/user.service";
 })
 export class UserListComponent implements OnInit {
   pageNumber = 0;
-  pageSize = 3;
+  pageSize = 4;
   sortBy = 'id';
   sortDirection = 'asc';
   users: Array<User>;

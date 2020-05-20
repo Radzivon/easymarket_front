@@ -31,14 +31,13 @@
         </div>
         <ng-template #notPaid>
           <div>
-            <button (click)="markAsPaid(cargo.id)">Mark as paid</button>
+            <button (click)="markAsPaid(cargo.id)" class="btn btn-color">Mark as paid</button>
           </div>
         </ng-template>
       </td>
     </tr>
     </tbody>
   </table>
-  <hr>
   <ul class="nav nav-pills">
     <li class="nav-item" *ngFor="let p of pages; let i=index">
       <a class="nav-link" href="#" (click)="setPageNumber(i,$event)" [ngClass]="{'active':i==pageNumber}">{{i + 1}}</a>

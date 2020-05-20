@@ -9,7 +9,7 @@ import {CargoService} from "../services/cargo/cargo.service";
 })
 export class CargoListComponent implements OnInit {
   pageNumber = 0;
-  pageSize = 20;
+  pageSize = 4;
   sortBy = 'id';
   sortDirection = 'asc';
   cargos: Array<Cargo>;
