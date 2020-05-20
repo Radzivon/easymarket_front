@@ -52,7 +52,7 @@ export class CargoService {
   }
 
   updateCargo(cargo: Cargo) {
-    return this.http.put(this.baseUrl + this.updateCargoUrl + cargo.id, JSON.stringify(cargo));
+    return this.http.put(this.baseUrl + this.updateCargoUrl + cargo.id, JSON.stringify(cargo), httpOptions);
   }
 
   saveCargo(cargo: Cargo) {
