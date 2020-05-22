@@ -48,6 +48,7 @@ export class CargoOwnerComponent implements OnInit {
 
   getTrips() {
     this.tripService.getTripByCargoOwner(this.pageNumber, this.pageSize, this.sortBy, this.sortDirection).subscribe(data => {
+      console.log(data);
         const pageOrders = JSON.parse(data);
         this.trips = pageOrders.content;
         this.pagesTrip = new Array<number>(pageOrders.totalPages);

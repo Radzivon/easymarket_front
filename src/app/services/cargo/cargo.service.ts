@@ -45,10 +45,8 @@ export class CargoService {
     return this.http.get(this.baseUrl + this.cargoUrl + id, {responseType: 'text'})
   }
 
-  setPaidByCargoId(id: number, isPaid: boolean) {
-    const cargo = new Cargo();
-    cargo.isPaid = isPaid;
-    return this.http.put(this.baseUrl + this.cargoPaidUrl + id, JSON.stringify(cargo));
+  setPaidByCargoId(cargo: Cargo) {
+    return this.http.put(this.baseUrl + this.cargoPaidUrl + cargo.id, JSON.stringify(cargo), httpOptions);
   }
 
   updateCargo(cargo: Cargo) {
