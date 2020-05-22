@@ -1,4 +1,4 @@
-<div>
+<div id="scrollArea" class="scrollbar">
   <table class="table table-striped">
     <thead>
     <tr>
@@ -17,7 +17,7 @@
     <tbody>
     <tr *ngFor="let cargo of cargos">
       <td>
-        <button type="button" (click)="addToCart(cargo)">Add to cart</button>
+        <button type="button" (click)="addToCart(cargo)" class="btn btn-color">Add</button>
       </td>
       <td><a routerLink="">{{cargo.id}}</a></td>
       <td>{{ cargo.name }}</td>
@@ -44,15 +44,13 @@
       <a class="nav-link" href="#" (click)="setPageNumber(i,$event)" [ngClass]="{'active':i==pageNumber}">{{i + 1}}</a>
     </li>
   </ul>
-</div>
-<div>
   <table class="table table-striped">
     <thead>
     <tr>
       <th scope="col">Cities</th>
     </tr>
     </thead>
-    <tr *ngFor="let city of cities">
+    <tr *ngFor="let city of cities" class="tableContentStyle">
       <td>{{city.name}}</td>
     </tr>
   </table>
@@ -61,30 +59,12 @@
       <label for="location">Current city</label>
       <input type="text" class="form-control" id="location" name="location" formControlName="location" required/>
     </div>
-    <div *ngIf="getLocationControl().invalid && (getLocationControl().touched)"
-         class="alert alert-danger">
-      <div *ngIf="getLocationControl().errors.required">
-        Current city is required.
-      </div>
-      <div *ngIf="getLocationControl().errors.minLength">
-        Current city must be at least 4 characters long.
-      </div>
-    </div>
     <div class="form-group">
       <label for="car">Car</label>
       <input type="text" class="form-control" id="car" name="car" formControlName="car" required/>
     </div>
-    <div *ngIf="getCarControl().invalid && (getCarControl().touched)"
-         class="alert alert-danger">
-      <div *ngIf="getCarControl().errors.required">
-        Field is required.
-      </div>
-      <div *ngIf="getCarControl().errors.minLength">
-        Filed must be at least 4 characters long.
-      </div>
-    </div>
-    <div class="form-group" (click)="createTrip()">
-      <button class="btn btn-outline-dark" type="button">Create</button>
-    </div>
   </form>
+  <div class="form-group" (click)="createTrip()">
+    <button class="btn btn-color" type="button">Create</button>
+  </div>
 </div>

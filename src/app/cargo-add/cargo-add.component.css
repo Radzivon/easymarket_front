@@ -4,6 +4,7 @@
   display: inline-block;
   vertical-align: middle;
   color: #feca00;
+  border-color: #0d1316;
 }
 .group-style {
   margin: auto;
@@ -11,16 +12,17 @@
   overflow: hidden;
 }
 .btn-color{
-  color: #feca00;
-  background-color: #0d1316;
-  border-color: #0d1316;
-  lighting-color: #feca00;
-}
-.btn-color:hover {
   color: #0d1316;
   background-color: #feca00;
-  border-color: #0d1316;
+  border-color: #feca00;
   lighting-color: #0d1316;
+  margin: 5px;
+}
+.btn-color:hover {
+  color: #feca00;
+  background-color: #0d1316;
+  border-color: #feca00;
+  lighting-color: #feca00;
 }
 .btn-class {
   margin: auto;

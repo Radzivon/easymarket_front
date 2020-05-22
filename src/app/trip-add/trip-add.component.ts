@@ -10,22 +10,23 @@ import {City} from "../model/city/city";
 @Component({
   selector: 'app-trip-add',
   templateUrl: './trip-add.component.html',
-  styleUrls: ['./trip-add.component.css']
+  styleUrls: ['./trip-add.component.css'],
 })
 export class TripAddComponent implements OnInit {
   form: any;
   pageNumber = 0;
-  pageSize = 20;
+  pageSize = 4;
   sortBy = 'id';
   sortDirection = 'asc';
   cargos: Array<Cargo>;
   pages: Array<number>;
   cities: Array<City>;
 
+
   constructor(private cargoService: CargoService, private cartService: CartService, private tripService: TripService, private fb: FormBuilder) {
     this.form = this.fb.group({
-      location: new FormControl('', [Validators.required, Validators.minLength(4)]),
-      car: new FormControl('', [Validators.required, Validators.minLength(4)]),
+      location: new FormControl('', [Validators.required, Validators.pattern(/^[A-ZА-Я]{1}[a-zа-яё]+$/)]),
+      car: new FormControl('', [Validators.required, Validators.minLength(1)]),
     });
   }
 
@@ -102,5 +103,4 @@ export class TripAddComponent implements OnInit {
   getCarControl() {
     return this.form.get('car');
   }
-
 }

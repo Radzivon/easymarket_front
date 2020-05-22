@@ -26,16 +26,16 @@
   margin-left: 10px;
 }
 .btn-color{
-  color: #feca00;
-  background-color: #0d1316;
-  border-color: #0d1316;
-  lighting-color: #feca00;
-}
-.btn-color:hover {
   color: #0d1316;
   background-color: #feca00;
-  border-color: #0d1316;
+  border-color: #feca00;
   lighting-color: #0d1316;
+}
+.btn-color:hover {
+  color: #feca00;
+  background-color: #0d1316;
+  border-color: #feca00;
+  lighting-color: #feca00;
 }
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {

@@ -49,6 +49,7 @@ export class EditTripComponent implements OnInit {
 
     this.tripService.editTrip(editedTrip);
     this.router.navigate(['trip/edit/' + this.trip.id])
+    this.goBack()
   }
 
   goBack() {
