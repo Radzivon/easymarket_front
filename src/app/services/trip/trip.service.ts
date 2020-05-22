@@ -19,7 +19,7 @@ export class TripService {
   private tripEdit = 'trip/edit/';
   private tripFinishUrl = 'trip/cancel';
   private tripByCargo = 'trip/cargo/user';
-  private pageStr = 'page=';
+  private pageStr = 'pageNo=';
   private pageSizeStr = 'pageSize=';
   private sortByStr = 'sortBy=';
   private order = 'order=';

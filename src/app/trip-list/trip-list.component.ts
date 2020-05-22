@@ -10,7 +10,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 })
 export class TripListComponent implements OnInit {
   pageNumber = 0;
-  pageSize = 20;
+  pageSize = 4;
   sortBy = 'id';
   sortDirection = 'asc';
   trips: Array<Trip>;
