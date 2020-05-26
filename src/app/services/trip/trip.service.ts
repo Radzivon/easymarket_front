@@ -18,8 +18,8 @@ export class TripService {
   private tripAddUrl = 'trip/add';
   private tripEdit = 'trip/edit/';
   private tripFinishUrl = 'trip/cancel';
-  private tripByCargo = 'trip/cargo/user';
-  private pageStr = 'pageNo=';
+  private tripByCargo = 'trip/cargouser';
+  private pageStr = 'page=';
   private pageSizeStr = 'pageSize=';
   private sortByStr = 'sortBy=';
   private order = 'order=';
@@ -54,7 +54,7 @@ export class TripService {
   }
 
   editTrip(trip: Trip) {
-    return this.http.put(this.baseUrl + this.tripEdit + trip.id, trip).subscribe();
+    return this.http.put(this.baseUrl + this.tripEdit + trip.id, trip, httpOptions).subscribe();
   }
 
   saveTrip(trip: Trip) {

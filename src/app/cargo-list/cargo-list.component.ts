@@ -57,8 +57,9 @@ export class CargoListComponent implements OnInit {
     this.getOrders();
   }
 
-  markAsPaid(id: number) {
-    this.cargoService.setPaidByCargoId(id, true).subscribe(data=>{
+  markAsPaid(cargo: Cargo) {
+    cargo.isPaid = true;
+    this.cargoService.setPaidByCargoId(cargo).subscribe(data=>{
       this.getOrders();
     });
   }
