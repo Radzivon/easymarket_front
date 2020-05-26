@@ -61,7 +61,10 @@ export class CargoService {
     return this.http.delete(this.baseUrl + this.deleteCargoUrl + cargoId).subscribe();
   }
 
-  getFreeCargo(): Observable<string> {
-    return this.http.get(this.baseUrl + this.freeCargoUrl, {responseType: 'text'});
+  getFreeCargo(pageNumber: number, pageSize: number, sortDirection: string, sortBy: string): Observable<string> {
+    console.log(pageNumber)
+    return this.http.get(this.baseUrl + this.freeCargoUrl + '?' + this.pageStr +
+      pageNumber + this.and + this.pageSizeStr + pageSize + this.and + this.sortByStr + sortBy
+      + this.and + this.order + sortDirection, {responseType: 'text'});
   }
 }
