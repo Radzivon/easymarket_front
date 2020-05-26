@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 })
 export class CurrentTripComponent implements OnInit {
   pageNumber = 0;
-  pageSize = 20;
+  pageSize = 4;
   sortBy = 'id';
   sortDirection = 'asc';
   trips: Array<Trip>;

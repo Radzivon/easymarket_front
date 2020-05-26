@@ -25,6 +25,7 @@ import {CargoAddComponent} from './cargo-add/cargo-add.component';
 import {TripAddComponent} from './trip-add/trip-add.component';
 import {CargoEditComponent} from './cargo-edit/cargo-edit.component';
 import {httpInterceptorProviders} from "./interceptor/auth-interceptor.interceptor";
+import {TripByCargoOwnerComponent} from './trip-by-cargo-owner/trip-by-cargo-owner.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {httpInterceptorProviders} from "./interceptor/auth-interceptor.intercept
     HomeComponent,
     CargoAddComponent,
     TripAddComponent,
-    CargoEditComponent
+    CargoEditComponent,
+    TripByCargoOwnerComponent
   ],
   imports: [
     BrowserModule,
