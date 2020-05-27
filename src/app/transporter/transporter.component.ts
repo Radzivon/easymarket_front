@@ -27,7 +27,7 @@ export class TransporterComponent implements OnInit {
   }
 
   getFreeCargo() {
-    this.cargoService.getFreeCargo().subscribe(data => {
+    this.cargoService.getFreeCargo(this.pageNumber, this.pageSize, this.sortDirection, this.sortBy).subscribe(data => {
       const pageOrders = JSON.parse(data);
       this.cargo = pageOrders.content;
       this.pagesCargo = new Array<number>(pageOrders.totalPages);

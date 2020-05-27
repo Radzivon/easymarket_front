@@ -1,3 +1,7 @@
+<div *ngIf="trips.length === 0; else templateList">
+  <p>Oooops! Current trip list is empty</p>
+</div>
+<ng-template #templateList>
 <div>
   <table class="table table-striped">
     <thead>
@@ -47,3 +51,4 @@
     </li>
   </ul>
 </div>
+</ng-template>

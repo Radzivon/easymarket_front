@@ -16,7 +16,7 @@ export class UserService {
   private userUrl = 'user/';
   private userInfoUrl = 'user/info';
   private userBlockUrl = 'user/block/';
-  private pageStr = 'pageNo=';
+  private pageStr = 'page=';
   private pageSizeStr = 'pageSize=';
   private sortByStr = 'sortBy=';
   private order = 'order=';

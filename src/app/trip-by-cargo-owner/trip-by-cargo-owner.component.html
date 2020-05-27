@@ -1,7 +1,7 @@
-<div *ngIf="trips.length === 0; else templateList">
-  <p>Oooops! Trip list is empty</p>
+<div *ngIf="trips.length === 0; else templateListTrip">
+  <p>Oooops! Current trip list is empty</p>
 </div>
-<ng-template #templateList>
+<ng-template #templateListTrip>
   <div>
     <table class="table table-striped">
       <thead>
@@ -10,6 +10,7 @@
         <th scope="col">Current city</th>
         <th scope="col">Car</th>
         <th scope="col">Paid</th>
+        <th scope="col">Condition</th>
       </tr>
       </thead>
       <tbody>
@@ -22,17 +23,19 @@
             <p style="color: green">Paid</p>
           </div>
           <ng-template #notPaid>
-            <div>
-              <button (click)="markTripAsPaid(trip)" class="btn btn-color">Mark as paid</button>
-            </div>
+            <p style="color: red">Not paid</p>
           </ng-template>
+        </td>
+        <td>
+          {{trip.tripCondition}}
         </td>
       </tr>
       </tbody>
     </table>
-    <hr>
+  </div>
+  <div>
     <ul class="nav nav-pills">
-      <li class="nav-item" *ngFor="let p of pages; let i=index">
+      <li class="nav-item" *ngFor="let p of pagesTrip; let i=index">
         <a class="nav-link" href="#" (click)="setPageNumber(i,$event)"
            [ngClass]="{'active':i==pageNumber}">{{i + 1}}</a>
       </li>

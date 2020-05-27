@@ -36,7 +36,7 @@ export class TripAddComponent implements OnInit {
   }
 
   getFreeCargo() {
-    this.cargoService.getFreeCargo().subscribe(data => {
+    this.cargoService.getFreeCargo(this.pageNumber, this.pageSize, this.sortDirection, this.sortBy).subscribe(data => {
       const pageOrders = JSON.parse(data);
       this.cargos = pageOrders.content;
       this.pages = new Array<number>(pageOrders.totalPages);

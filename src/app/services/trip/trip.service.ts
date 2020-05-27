@@ -35,6 +35,7 @@ export class TripService {
   }
 
   getTripByCargoOwner(page: number, pageSize: number, sortBy: string, sortDir: string) {
+    console.log(page)
     return this.http.get(this.baseUrl + this.tripByCargo
       + '?' + this.pageStr + page + this.and + this.pageSizeStr + pageSize + this.and + this.sortByStr + sortBy
       + this.and + this.order + sortDir, {responseType: 'text'});
