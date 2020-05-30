@@ -11,7 +11,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class CargoService {
-  private baseUrl = 'http://localhost:8080/';
+  private baseUrl = 'https://cargoapp-tp.herokuapp.com/';
   private cargoAllUrl = 'cargo/all';
   private freeCargoUrl = 'cargo/free';
   private cargoAllByUserIdUrl = 'cargo/user';
@@ -36,7 +36,6 @@ export class CargoService {
   }
 
   getCargoAllByUserId(page: number, pageSize: number, sortBy: string, sortDir: string): Observable<string> {
-    console.log(page)
     return this.http.get(this.baseUrl + this.cargoAllByUserIdUrl
       + '?' + this.pageStr + page + this.and + this.pageSizeStr + pageSize + this.and + this.sortByStr + sortBy
       + this.and + this.order + sortDir, {responseType: 'text'});
@@ -63,7 +62,7 @@ export class CargoService {
   }
 
   getFreeCargo(pageNumber: number, pageSize: number, sortDirection: string, sortBy: string): Observable<string> {
-    console.log(pageNumber)
+
     return this.http.get(this.baseUrl + this.freeCargoUrl + '?' + this.pageStr +
       pageNumber + this.and + this.pageSizeStr + pageSize + this.and + this.sortByStr + sortBy
       + this.and + this.order + sortDirection, {responseType: 'text'});

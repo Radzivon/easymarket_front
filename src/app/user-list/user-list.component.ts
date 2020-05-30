@@ -24,7 +24,6 @@ export class UserListComponent implements OnInit {
 
   getUsers() {
     this.userService.getUserAll(this.pageNumber, this.pageSize, this.sortBy, this.sortDirection).subscribe(data => {
-      console.log(data);
       const pageOrders = JSON.parse(data);
         this.users = pageOrders.content;
         this.pages = new Array<number>(pageOrders.totalPages);
@@ -35,7 +34,6 @@ export class UserListComponent implements OnInit {
   }
 
   setPageNumber(i, event: any) {
-    console.log(i)
     event.preventDefault();
     this.pageNumber = i;
     this.getUsers();

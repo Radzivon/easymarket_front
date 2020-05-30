@@ -70,7 +70,6 @@ export class CargoEditComponent implements OnInit {
     updatedCargo.transportationCost = this.getTransportationCostControl().value;
     updatedCargo.isPaid = false;
     updatedCargo.cargoCondition = "FREE";
-    console.log(updatedCargo)
     this.cargoService.updateCargo(updatedCargo).subscribe();
     this.goBack();
   }

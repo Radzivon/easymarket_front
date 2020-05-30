@@ -28,7 +28,6 @@ export class CargoListComponent implements OnInit {
         this.cargos = pageOrders.content;
         this.pages = new Array<number>(pageOrders.totalPages);
       }, error => {
-        console.log(error.error.message);
       }
     );
   }

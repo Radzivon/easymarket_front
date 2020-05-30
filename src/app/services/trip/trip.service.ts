@@ -11,13 +11,13 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class TripService {
-  private baseUrl = 'http://localhost:8080/';
+  private baseUrl = 'https://cargoapp-tp.herokuapp.com/';
   private tripAllUrl = 'trip/all';
   private tripUrl = 'trip/';
   private tripCurrent = 'trip/current';
   private tripAddUrl = 'trip/add';
   private tripEdit = 'trip/edit/';
-  private tripFinishUrl = 'trip/cancel';
+  private tripFinishUrl = 'trip/cancel/';
   private tripByCargo = 'trip/cargouser';
   private pageStr = 'page=';
   private pageSizeStr = 'pageSize=';
@@ -35,7 +35,6 @@ export class TripService {
   }
 
   getTripByCargoOwner(page: number, pageSize: number, sortBy: string, sortDir: string) {
-    console.log(page)
     return this.http.get(this.baseUrl + this.tripByCargo
       + '?' + this.pageStr + page + this.and + this.pageSizeStr + pageSize + this.and + this.sortByStr + sortBy
       + this.and + this.order + sortDir, {responseType: 'text'});

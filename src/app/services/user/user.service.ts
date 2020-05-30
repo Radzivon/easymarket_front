@@ -11,7 +11,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl = 'http://localhost:8080/';
+  private baseUrl = 'https://cargoapp-tp.herokuapp.com/';
   private userAllUrl = 'user/all';
   private userUrl = 'user/';
   private userInfoUrl = 'user/info';
