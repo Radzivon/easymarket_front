@@ -1,21 +1,13 @@
-<div class="container">
-
-  <div class="card">
-    <div class="card-header">
-      Trip
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">{{trip.currentCity}}</h5>
-      <p class="card-text">{{trip.car}}</p>
-      <div >
-        <ul *ngFor="let city of trip.cities">
-          <li>
-            {{city}}
-          </li>
-        </ul>
-      </div>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Trip</h5>
+    <p class="card-text">Current city: {{trip.currentCity}}</p>
+    <p class="card-text">Trip car: {{trip.car}}</p>
+    <ul *ngFor="let city of trip.cities">
+      <p class="card-text">Departure city: {{city.name}}</p>
+    </ul>
+    <div (click)="goBack()" class="btn-class">
+      <button class="btn btn-color" type="button">Back</button>
     </div>
   </div>
 </div>
-

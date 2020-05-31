@@ -12,12 +12,11 @@
       <ng-template #notPaid>
         <p style="color: red">Status: Not paid</p>
       </ng-template>
-      <p>Cities</p>
+      <div class="scrollbar" id="cityScroll">
       <ul *ngFor="let city of trip.cities">
-        <li>
-          {{city.name}}
-        </li>
+        <p>Departure city: {{city.name}}</p>
       </ul>
+      </div>
       <div class="form-group">
         <label for="location">Update current city</label>
         <input type="text" class="form-control" id="location" name="location" formControlName="location" required/>

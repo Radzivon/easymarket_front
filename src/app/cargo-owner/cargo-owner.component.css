@@ -47,21 +47,13 @@ a:hover {
 }
 tbody {
   color: #ffec9b;
+  width: 400px;
+}
+table {
+  table-layout: auto;
 }
 .table td {
   border-color: #5d6d7c;
-}
-.btn-color{
-  color: #feca00;
-  background-color: #0d1316;
-  border-color: #0d1316;
-  lighting-color: #feca00;
-}
-.btn-color:hover {
-  color: #0d1316;
-  background-color: #feca00;
-  border-color: #0d1316;
-  lighting-color: #0d1316;
 }
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
   color: #0d1316;

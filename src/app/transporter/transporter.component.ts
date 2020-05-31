@@ -15,6 +15,7 @@ export class TransporterComponent implements OnInit {
   sortBy = 'id';
   sortDirection = 'asc';
   cargo: Array<Cargo>;
+  active = 1;
   trips: Array<Trip>;
   pagesCargo: Array<number>;
   pagesTrip: Array<number>;

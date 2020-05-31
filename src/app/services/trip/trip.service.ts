@@ -17,7 +17,7 @@ export class TripService {
   private tripCurrent = 'trip/current';
   private tripAddUrl = 'trip/add';
   private tripEdit = 'trip/edit/';
-  private tripFinishUrl = 'trip/cancel';
+  private tripFinishUrl = 'trip/cancel/';
   private tripByCargo = 'trip/cargouser';
   private pageStr = 'page=';
   private pageSizeStr = 'pageSize=';

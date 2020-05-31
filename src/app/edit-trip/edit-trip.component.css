@@ -36,6 +36,10 @@ input.ng-invalid{
   height: 450px;
   overflow: auto;
 }
+#cityScroll {
+  height: 180px;
+  overflow: auto;
+}
 img {
   height: 260px;
 }
