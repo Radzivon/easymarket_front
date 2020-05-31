@@ -18,14 +18,14 @@
                 <th scope="col">Length</th>
                 <th scope="col">Height</th>
                 <th scope="col">Condition</th>
-                <th scope="col">Location</th>
-                <th scope="col">Transportation cost</th>
+                <th scope="col">Departure city</th>
+                <th scope="col" style="width: 100px">Transportation cost</th>
                 <th scope="col">Action</th>
               </tr>
               </thead>
               <tbody>
               <tr *ngFor="let cargo of cargos">
-                <td><a routerLink="">{{cargo.id}}</a></td>
+                <td><a routerLink="/cargo/{{cargo.id}}">{{cargo.id}}</a></td>
                 <td>{{ cargo.name }}</td>
                 <td>{{ cargo.weight}}</td>
                 <td>{{ cargo.width}}</td>

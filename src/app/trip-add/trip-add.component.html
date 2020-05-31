@@ -23,7 +23,7 @@
         <td>
           <button type="button" (click)="addToCart(cargo)" class="btn btn-color">Add</button>
         </td>
-        <td><a routerLink="">{{cargo.id}}</a></td>
+        <td><a routerLink="/cargo/{{cargo.id}}">{{cargo.id}}</a></td>
         <td>{{ cargo.name }}</td>
         <td>{{ cargo.weight}}</td>
         <td>{{ cargo.width}}</td>
@@ -42,35 +42,37 @@
       </tr>
       </tbody>
     </table>
+
+    <hr>
+    <ul class="nav nav-pills">
+      <li class="nav-item" *ngFor="let p of pages; let i=index">
+        <a class="nav-link" href="#" (click)="setPageNumber(i,$event)"
+           [ngClass]="{'active':i==pageNumber}">{{i + 1}}</a>
+      </li>
+    </ul>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">Cities</th>
+      </tr>
+      </thead>
+      <tr *ngFor="let city of cities" class="tableContentStyle">
+        <td>{{city.name}}</td>
+      </tr>
+    </table>
+    <form [formGroup]="form" novalidate>
+      <div class="form-group">
+        <label for="location">Current city</label>
+        <input type="text" class="form-control" id="location" name="location" formControlName="location" required/>
+      </div>
+      <div class="form-group">
+        <label for="car">Car</label>
+        <input type="text" class="form-control" id="car" name="car" formControlName="car" required/>
+      </div>
+    </form>
+    <div class="form-group" (click)="createTrip()">
+      <button class="btn btn-color" type="button">Create</button>
+    </div>
   </div>
 </ng-template>
-<hr>
-<ul class="nav nav-pills">
-  <li class="nav-item" *ngFor="let p of pages; let i=index">
-    <a class="nav-link" href="#" (click)="setPageNumber(i,$event)" [ngClass]="{'active':i==pageNumber}">{{i + 1}}</a>
-  </li>
-</ul>
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th scope="col">Cities</th>
-  </tr>
-  </thead>
-  <tr *ngFor="let city of cities" class="tableContentStyle">
-    <td>{{city.name}}</td>
-  </tr>
-</table>
-<form [formGroup]="form" novalidate>
-  <div class="form-group">
-    <label for="location">Current city</label>
-    <input type="text" class="form-control" id="location" name="location" formControlName="location" required/>
-  </div>
-  <div class="form-group">
-    <label for="car">Car</label>
-    <input type="text" class="form-control" id="car" name="car" formControlName="car" required/>
-  </div>
-</form>
-<div class="form-group" (click)="createTrip()">
-  <button class="btn btn-color" type="button">Create</button>
-</div>
 

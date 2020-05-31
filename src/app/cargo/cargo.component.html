@@ -1,18 +1,21 @@
-<div class="container">
-
-  <div class="card">
-    <div class="card-header">
-      Cargo
+<div class="card scrollbar" id="scrollArea">
+  <div class="card-body">
+    <h5 class="card-title">Cargo</h5>
+    <p class="card-text">Cargo name: {{cargo.name}}</p>
+    <div>
+      <p class="card-text">Cargo weight: {{cargo.weight}}</p>
+      <p class="card-text">Cargo width: {{cargo.width}}</p>
+      <p class="card-text">Cargo length: {{cargo.length}}</p>
+      <p class="card-text">Cargo height: {{cargo.height}}</p>
     </div>
-    <div class="card-body">
-      <h5 class="card-title">{{cargo.name}}</h5>
-      <p class="card-text">{{cargo.weight}}</p>
-      <p class="card-text">{{cargo.width}}</p>
-      <p class="card-text">{{cargo.length}}</p>
-      <p class="card-text">{{cargo.height}}</p>
-      <p class="card-text">{{cargo.location}}</p>
-      <p class="card-text">{{cargo.transportationCost}}</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div>
+      <p class="card-text">Cargo location: {{cargo.location}}</p>
+    </div>
+    <div>
+      <p class="card-text">Cargo transportation cost: {{cargo.transportationCost}}</p>
+    </div>
+    <div (click)="goBack()" class="btn-class">
+      <button class="btn btn-color" type="button">Back</button>
     </div>
   </div>
 </div>

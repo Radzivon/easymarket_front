@@ -36,11 +36,16 @@ input.ng-invalid{
   height: 450px;
   overflow: auto;
 }
+#cityScroll {
+  height: 180px;
+  overflow: auto;
+}
 img {
   height: 260px;
 }
 .scrollbar::-webkit-scrollbar{
   background-color: #0d1316;
+  width: 3px;
 }
 .scrollbar::-webkit-scrollbar-thumb {
   background-color: #feca00;
