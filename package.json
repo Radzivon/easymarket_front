@@ -7,7 +7,7 @@
   },
   "scripts": {
     "ng": "ng",
-    "start":  "http-server-spa dist/notes index.html $PORT",
+    "start":  "http-server-spa dist/easymarketFront index.html $PORT",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
