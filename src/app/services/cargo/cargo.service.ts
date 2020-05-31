@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Cargo} from "../../model/cargo/cargo";
+import {environment} from "../../../environments/environment";
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -11,7 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class CargoService {
-  private baseUrl = 'https://cargoapp-tp.herokuapp.com/';
+  private baseUrl = `${environment.apiUrl}`;
   private cargoAllUrl = 'cargo/all';
   private freeCargoUrl = 'cargo/free';
   private cargoAllByUserIdUrl = 'cargo/user';

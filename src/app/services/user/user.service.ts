@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {User} from "../../model/user/user";
+import {environment} from "../../../environments/environment";
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -11,7 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl = 'https://cargoapp-tp.herokuapp.com/';
+  private baseUrl = `${environment.apiUrl}`;
   private userAllUrl = 'user/all';
   private userUrl = 'user/';
   private userInfoUrl = 'user/info';
